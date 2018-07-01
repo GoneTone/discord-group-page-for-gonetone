@@ -204,7 +204,7 @@ $member_count = $discordApi->getMemberCount();
                                 <thead>
                                     <tr>
                                         <th width="5%">#</th>
-                                        <th width="47%">暱稱</th>
+                                        <th width="47%">用戶名</th>
                                         <th width="48%">正在玩</th>
                                     </tr>
                                 </thead>
