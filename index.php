@@ -216,7 +216,7 @@ $member_count = $discordApi->getMemberCount();
                                         } else {
                                             $username = $member->username;
                                         }
-                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$username.'</td><td width="48%">'.$member->game->name.'</td></tr>';
+                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$username.'</td><td width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
                                     }
                                     ?>
                                 </tbody>
@@ -252,7 +252,7 @@ $member_count = $discordApi->getMemberCount();
                                     <?php
                                     foreach ($channel_list as $count => $channel) {
                                         $inChannel = $discordApi->getMembersInChannel($channel->id);
-                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%">'.$channel->name.'</td><td width="48%">';
+                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;">'.$channel->name.'</td><td width="48%" style="word-break: break-all;">';
                                         foreach ($inChannel as $member) {
                                             echo '<img src="'.$member->avatar_url.'" width="20" height="20"> '.$member->username.'<br>';
                                         }
