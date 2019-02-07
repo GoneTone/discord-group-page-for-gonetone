@@ -53,6 +53,7 @@ $member_count = $discordApi->getMemberCount();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="theme-color" content="#45A1EF">
         <title><?php echo $server_title." | Discord 群組"; ?></title>
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-16x16.png" sizes="16x16">
