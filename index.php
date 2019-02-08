@@ -63,12 +63,12 @@ $member_count = $discordApi->getMemberCount();
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-192x192.png" sizes="192x192">
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-256x256.png" sizes="256x256">
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-512x512.png" sizes="512x512">
-        <link rel="apple-touch-icon-precomposed" href="https://discord.reh.tw/assets/images/og-images/logo-256x256.png">
-        <link rel="image_src" type="image/jpeg" href="https://discord.reh.tw/assets/images/og-images/logo-256x256.png">
+        <link rel="apple-touch-icon-precomposed" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
+        <link rel="image_src" type="image/jpeg" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
         <meta name="author" content="張文相 Zhang Wenxiang">
         <meta name="description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
         <meta property="description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
-        <meta name="msapplication-TileImage" content="https://discord.reh.tw/assets/images/og-images/logo-256x256.png">
+        <meta name="msapplication-TileImage" content="https://discord.reh.tw/assets/images/og/logo-256x256.png">
         <meta property="fb:app_id" content="344099459299612">
         <meta property="article:author" content="https://www.facebook.com/GoneToneDY/">
         <meta property="og:site_name" content="旋風之音 GoneTone">
@@ -77,13 +77,13 @@ $member_count = $discordApi->getMemberCount();
         <meta property="og:title" content="<?php echo $server_title." | Discord 群組"; ?>">
         <meta property="og:description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
         <meta property="og:url" content="https://discord.reh.tw">
-        <meta property="og:image" content="https://discord.reh.tw/assets/images/og-images/discord_group.jpg">
-        <meta property="og:image:width" content="1923">
-        <meta property="og:image:height" content="1020">
+        <meta property="og:image" content="https://discord.reh.tw/assets/images/og/banner.png">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:title" content="<?php echo $server_title." | Discord 群組"; ?>">
         <meta name="twitter:description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
-        <meta name="twitter:image" content="https://discord.reh.tw/assets/images/og-images/discord_group.jpg">
+        <meta name="twitter:image" content="https://discord.reh.tw/assets/images/og/banner.png">
         <meta name="twitter:site" content="@TPGoneTone">
         <meta name="twitter:creator" content="@TPGoneTone">
         <link href="//fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
@@ -144,8 +144,8 @@ $member_count = $discordApi->getMemberCount();
                                 <h2>共同聊天的一個群組</h2>
                                 <p>不管是玩多人線上遊戲組隊或聊天聊動漫聊科技，都可以利用我們的頻道，找尋夥伴！</p>
                                 <br>
-                                <a class="image-popup-no-margins" href="assets/images/discord_group.jpg">
-                                    <img src="assets/images/discord_group.jpg" class="img-fluid d-block rounded">
+                                <a class="image-popup-no-margins" href="assets/images/discord_group.png">
+                                    <img src="assets/images/discord_group.png" class="img-fluid d-block rounded">
                                 </a>
                             </div>
                         </div>
