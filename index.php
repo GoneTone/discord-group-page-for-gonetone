@@ -103,7 +103,7 @@ $member_count = $discordApi->getMemberCount();
                         <div class="header-wrap">
                             <div class="header-top d-flex justify-content-between align-items-center">
                                 <div class="logo">
-                                    <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png" class="img-fluid d-block rounded"></a>
+                                    <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png?v=1.0.1" width="247" class="img-fluid d-block rounded"></a>
                                 </div>
                                 <div class="main-menubar d-flex align-items-center">
                                     <nav class="hide">
@@ -371,7 +371,7 @@ $member_count = $discordApi->getMemberCount();
                     <div class="container">
                         <div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
                             <div class="logo">
-                                <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png" class="img-fluid d-block rounded"></a>
+                                <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png?v=1.0.1" width="247" class="img-fluid d-block rounded"></a>
                             </div>
                             <div class="copy-right-text">Copyright &copy; <?php $set = '2018'; $datetime = date ("Y" , mktime(date('H')+8, date('i'), date('s'), date('m'), date('d'), date('Y'))); if( $datetime == $set) {echo $datetime;}else{echo $set.'-'.$datetime;} ?> <a href="/"><?php echo $server_title; ?></a>. All rights reserved.
                                 <br>Developed by <a href="https://www.facebook.com/GoneToneDY" target="_blank">張文相 (Zhang Wenxiang)</a>.</div>
