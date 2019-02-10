@@ -12,7 +12,7 @@ class DiscordApi {
     }
 
     public function fetch() {
-        $url = 'https://discordapp.com/api/servers/'.$this->serverId.'/widget.json';
+        $url = "https://discordapp.com/api/servers/" . $this->serverId . "/widget.json";
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -50,16 +50,18 @@ class DiscordApi {
             die('Server Id can not be null.');
         }
 
-        $members = array_filter($this->getMembers(), function($member) use ($id) {
+        $members = array_filter($this->getMembers(), function ($member) use ($id) {
             if (!isset($member->channel_id)) {
                 return false;
             }
             if ($member->channel_id != $id) {
                 return false;
             }
+            /*
             if (isset($member->bot)) {
                 return false;
             }
+            */
             return true;
         });
 

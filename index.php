@@ -3,7 +3,9 @@ include_once("api/discordApi.php");
 
 use GoneTone\DiscordApi;
 
-$discordApi = new DiscordApi("434607247071641600");
+$serverId = "434607247071641600";
+
+$discordApi = new DiscordApi($serverId);
 $discordApi->fetch();
 
 $server_title = $discordApi->getServerTitle();
@@ -12,7 +14,7 @@ $channel_count = $discordApi->getChannelCount();
 $member_list = $discordApi->getMembers();
 $member_count = $discordApi->getMemberCount();
 
-//var_dump($discord->getRawData());
+//var_dump($discordApi->getRawData());
 ?>
 <!--
     <?php echo $server_title." | Discord 群組"."\n"; ?>
@@ -448,11 +450,15 @@ $member_count = $discordApi->getMemberCount();
                                     <?php
                                     foreach ($channel_list as $count => $channel) {
                                         $inChannel = $discordApi->getMembersInChannel($channel->id);
-                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;">'.$channel->name.'</td><td width="48%" style="word-break: break-all;">';
+                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;">'.$channel->name.'</td><td width="48%" style="word-break: break-all;"><ul class="list-group">';
                                         foreach ($inChannel as $member) {
-                                            echo '<img src="'.$member->avatar_url.'" width="20" height="20"> '.$member->username.'<br>';
+                                            if ($member->bot === true) {
+                                                echo '<li class="list-group-item active mb-1"><img src="'.$member->avatar_url.'" width="20" height="20"> <font color="#ff0000">【機器人】</font>'.$member->username.'</li>';
+                                            } else {
+                                                echo '<li class="list-group-item active mb-1"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$member->username.'</li>';
+                                            }
                                         }
-                                        echo '</td></tr>';
+                                        echo '</ul></td></tr>';
                                     }
                                     ?>
                                     </tbody>
