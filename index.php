@@ -398,23 +398,37 @@ $member_count = $discordApi->getMemberCount();
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
+                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
                                 <table class="table">
                                     <thead>
                                     <tr>
                                         <th width="5%">#</th>
-                                        <th width="47%">用戶名</th>
+                                        <th width="47%">用戶名 / 暱稱</th>
                                         <th width="48%">正在玩</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                     foreach ($member_list as $count => $member) {
-                                        if ($member->bot === true) {
-                                            $username = '<font color="#ff0000">【機器人】</font>'.$member->username;
+                                        if (isset($member->nick)) {
+                                            $name = $member->nick;
                                         } else {
-                                            $username = $member->username;
+                                            $name = $member->username;
                                         }
-                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$username.'</td><td width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                        if ($member->bot === true) {
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-secondary btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                        } else {
+                                            if ($member->status === "online") {
+                                                $btnColor = "success";
+                                            } else if ($member->status === "idle") {
+                                                $btnColor = "warning";
+                                            } else if ($member->status === "dnd") {
+                                                $btnColor = "danger";
+                                            } else {
+                                                $btnColor = "success";
+                                            }
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                        }
                                     }
                                     ?>
                                     </tbody>
@@ -438,6 +452,7 @@ $member_count = $discordApi->getMemberCount();
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
+                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -450,15 +465,29 @@ $member_count = $discordApi->getMemberCount();
                                     <?php
                                     foreach ($channel_list as $count => $channel) {
                                         $inChannel = $discordApi->getMembersInChannel($channel->id);
-                                        echo '<tr><td width="5%">'.($count + 1).'</td><td width="47%" style="word-break: break-all;">'.$channel->name.'</td><td width="48%" style="word-break: break-all;"><ul class="list-group">';
+                                        echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;">'.$channel->name.'</td><td class="align-middle" width="48%" style="word-break: break-all;">';
                                         foreach ($inChannel as $member) {
-                                            if ($member->bot === true) {
-                                                echo '<li class="list-group-item active mb-1"><img src="'.$member->avatar_url.'" width="20" height="20"> <font color="#ff0000">【機器人】</font>'.$member->username.'</li>';
+                                            if (isset($member->nick)) {
+                                                $name = $member->nick;
                                             } else {
-                                                echo '<li class="list-group-item active mb-1"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$member->username.'</li>';
+                                                $name = $member->username;
+                                            }
+                                            if ($member->bot === true) {
+                                                echo '<a href="javascript:;" role="button" class="btn btn-outline-secondary btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</a>';
+                                            } else {
+                                                if ($member->status === "online") {
+                                                    $btnColor = "success";
+                                                } else if ($member->status === "idle") {
+                                                    $btnColor = "warning";
+                                                } else if ($member->status === "dnd") {
+                                                    $btnColor = "danger";
+                                                } else {
+                                                    $btnColor = "success";
+                                                }
+                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
                                             }
                                         }
-                                        echo '</ul></td></tr>';
+                                        echo '</td></tr>';
                                     }
                                     ?>
                                     </tbody>
