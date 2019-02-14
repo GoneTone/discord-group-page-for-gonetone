@@ -399,7 +399,7 @@ $member_count = $discordApi->getMemberCount();
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
-                                <table class="table">
+                                <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th width="5%">#</th>
@@ -453,7 +453,7 @@ $member_count = $discordApi->getMemberCount();
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
-                                <table class="table">
+                                <table class="table table-hover">
                                     <thead>
                                     <tr>
                                         <th width="5%">#</th>
