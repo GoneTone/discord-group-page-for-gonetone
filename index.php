@@ -416,7 +416,7 @@ $member_count = $discordApi->getMemberCount();
                                             $name = $member->username;
                                         }
                                         if ($member->bot === true) {
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-secondary btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
                                         } else {
                                             if ($member->status === "online") {
                                                 $btnColor = "success";
@@ -427,7 +427,7 @@ $member_count = $discordApi->getMemberCount();
                                             } else {
                                                 $btnColor = "success";
                                             }
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
                                         }
                                     }
                                     ?>
@@ -473,7 +473,7 @@ $member_count = $discordApi->getMemberCount();
                                                 $name = $member->username;
                                             }
                                             if ($member->bot === true) {
-                                                echo '<a href="javascript:;" role="button" class="btn btn-outline-secondary btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</a>';
+                                                echo '<a href="javascript:;" role="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</a>';
                                             } else {
                                                 if ($member->status === "online") {
                                                     $btnColor = "success";
@@ -484,7 +484,7 @@ $member_count = $discordApi->getMemberCount();
                                                 } else {
                                                     $btnColor = "success";
                                                 }
-                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" title="'.$member->username.'#'.$member->discriminator.'"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
                                             }
                                         }
                                         echo '</td></tr>';
@@ -509,6 +509,19 @@ $member_count = $discordApi->getMemberCount();
         <script src="assets/js/jquery.nice-select.min.js"></script>
         <script src="assets/js/jquery.magnific-popup.min.js"></script>
         <script src="assets/js/main.js?v=1.0.0"></script>
+        <script type="text/javascript">
+            /* 顯示用戶名 */
+            function displayUserName(obj, userName) {
+                var avatarUrl = obj.getElementsByTagName("img")[0].src;
+                obj.innerHTML = '<img src="'+ avatarUrl +'" width="20" height="20"> ' + userName;
+            }
+
+            /* 顯示暱稱 */
+            function displayNickName(obj, nickName) {
+                var avatarUrl = obj.getElementsByTagName("img")[0].src;
+                obj.innerHTML = '<img src="'+ avatarUrl +'" width="20" height="20"> ' + nickName;
+            }
+        </script>
         <script type="text/javascript">
             function joinDiscordGroup(code) {
                 var requestURL = "https://discord.gg/";
