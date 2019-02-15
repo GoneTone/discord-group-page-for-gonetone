@@ -70,6 +70,10 @@ a {
   transition: all 0.3s ease 0s;
 }
 
+tr .align-middle a {
+  color: #43a7fe;
+}
+
 iframe {
   border: 0;
 }

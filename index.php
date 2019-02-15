@@ -95,7 +95,7 @@ $member_count = $discordApi->getMemberCount();
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/main.css?v=1.0.0">
+        <link rel="stylesheet" href="assets/css/main.css?v=1.0.3">
     </head>
     <body>
         <div class="main-wrapper-first">
@@ -427,7 +427,22 @@ $member_count = $discordApi->getMemberCount();
                                             } else {
                                                 $btnColor = "success";
                                             }
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+
+                                            $gameName = $member->game->name;
+                                            $gameName = preg_replace("/(?<![#>\".\/])Minecraft/i", "<a href=\"https://minecraft.net/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Apex Legends/i", "<a href=\"https://www.ea.com/games/apex-legends\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Grand Theft Auto V/i", "<a href=\"https://www.rockstargames.com/V/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])PLAYERUNKNOWN'S BATTLEGROUNDS/i", "<a href=\"https://www.pubg.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Euro Truck Simulator 2/i", "<a href=\"http://www.eurotrucksimulator2.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])League of Legends/i", "<a href=\"https://lol.garena.tw/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Tom Clancy's Rainbow Six Siege/i", "<a href=\"http://rainbow6.ubi.com/siege/home/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Overwatch/i", "<a href=\"https://playoverwatch.com\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])osu!/i", "<a href=\"https://osu.ppy.sh\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Nox APP Player/i", "<a href=\"https://bignox.com\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])Battlefield 4/i", "<a href=\"https://www.battlefield.com/games/battlefield-4\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $gameName = preg_replace("/(?<![#>\".\/])World of Warships/i", "<a href=\"https://worldofwarships.asia/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$gameName.'</td></tr>';
                                         }
                                     }
                                     ?>
