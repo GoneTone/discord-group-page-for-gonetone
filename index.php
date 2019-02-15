@@ -488,7 +488,7 @@ $member_count = $discordApi->getMemberCount();
                                                 $name = $member->username;
                                             }
                                             if ($member->bot === true) {
-                                                echo '<a href="javascript:;" role="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</a>';
+                                                echo '<button type="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button>';
                                             } else {
                                                 if ($member->status === "online") {
                                                     $btnColor = "success";
