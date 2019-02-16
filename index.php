@@ -470,7 +470,7 @@ $member_count = $discordApi->getMemberCount();
 
                                             $gameName = $member->game->name;
                                             foreach (array_keys($gameList) as $gameKey) {
-                                                $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                                $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
                                             }
 
                                             echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$gameName.'</td></tr>';
