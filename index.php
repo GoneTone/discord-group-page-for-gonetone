@@ -95,7 +95,7 @@ $member_count = $discordApi->getMemberCount();
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/main.css?v=1.0.3">
+        <link rel="stylesheet" href="assets/css/main.css?v=1.0.4">
     </head>
     <body>
         <div class="main-wrapper-first">
@@ -469,8 +469,14 @@ $member_count = $discordApi->getMemberCount();
                                             );
 
                                             $gameName = $member->game->name;
-                                            foreach (array_keys($gameList) as $gameKey) {
-                                                $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            if (in_array($gameName, array_keys($gameList))) {
+                                                foreach (array_keys($gameList) as $gameKey) {
+                                                    $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                                }
+                                            } else {
+                                                if (isset($gameName)) {
+                                                    $gameName = '<a href="javascript:;" style="color: #ba0000" onclick="alert(\'遊戲/應用程式「'.$gameName.'」未註冊在我們的清單，無法取得網址。\\n\\n如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。\');"><i class="fa fa-exclamation-circle" style="color: #ba0000"></i> '.$gameName.'</a>';
+                                                }
                                             }
 
                                             echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$gameName.'</td></tr>';

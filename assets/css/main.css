@@ -70,7 +70,8 @@ a {
   transition: all 0.3s ease 0s;
 }
 
-tr .align-middle a {
+tr .align-middle a,
+tr .align-middle a i {
   color: #43a7fe;
 }
 
