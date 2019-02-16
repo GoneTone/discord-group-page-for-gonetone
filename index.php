@@ -492,7 +492,7 @@ $member_count = $discordApi->getMemberCount();
                                                 $name = $member->username;
                                             }
                                             if ($member->bot === true) {
-                                                echo '<button type="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button>';
+                                                echo '<button type="button" class="btn btn-outline-secondary btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button>';
                                             } else {
                                                 if ($member->status === "online") {
                                                     $btnColor = "success";
@@ -503,7 +503,7 @@ $member_count = $discordApi->getMemberCount();
                                                 } else {
                                                     $btnColor = "success";
                                                 }
-                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
                                             }
                                         }
                                         echo '</td></tr>';
