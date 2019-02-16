@@ -446,23 +446,32 @@ $member_count = $discordApi->getMemberCount();
                                                 $btnColor = "success";
                                             }
 
+                                            $gameList = array(
+                                                "Minecraft" => "https://minecraft.net/",
+                                                "Apex Legends" => "https://www.ea.com/games/apex-legends",
+                                                "Grand Theft Auto V" => "https://www.rockstargames.com/V/",
+                                                "PLAYERUNKNOWN'S BATTLEGROUNDS" => "https://www.pubg.com/",
+                                                "Euro Truck Simulator 2" => "https://www.eurotrucksimulator2.com/",
+                                                "League of Legends" => "https://lol.garena.tw/",
+                                                "Tom Clancy's Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
+                                                "Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
+                                                "Overwatch" => "https://playoverwatch.com",
+                                                "osu!" => "https://osu.ppy.sh",
+                                                "Nox APP Player" => "https://bignox.com",
+                                                "Battlefield 4" => "https://www.battlefield.com/games/battlefield-4",
+                                                "World of Warships" => "https://worldofwarships.asia/",
+                                                "Lineage II" => "http://lineage2.plaync.com.tw/",
+                                                "Spotify" => "https://www.spotify.com/",
+                                                "Warframe" => "https://www.warframe.com/",
+                                                "Robocraft" => "https://robocraftgame.com/",
+                                                "Trove" => "https://www.trionworlds.com/trove/",
+                                                "Escape from Tarkov" => "https://www.escapefromtarkov.com/"
+                                            );
+
                                             $gameName = $member->game->name;
-                                            $gameName = preg_replace("/(?<![#>\".\/])Minecraft/i", "<a href=\"https://minecraft.net/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Apex Legends/i", "<a href=\"https://www.ea.com/games/apex-legends\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Grand Theft Auto V/i", "<a href=\"https://www.rockstargames.com/V/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])PLAYERUNKNOWN'S BATTLEGROUNDS/i", "<a href=\"https://www.pubg.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Euro Truck Simulator 2/i", "<a href=\"https://www.eurotrucksimulator2.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])League of Legends/i", "<a href=\"https://lol.garena.tw/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Tom Clancy's Rainbow Six Siege/i", "<a href=\"https://rainbow6.ubi.com/siege/home/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Rainbow Six Siege/i", "<a href=\"https://rainbow6.ubi.com/siege/home/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Overwatch/i", "<a href=\"https://playoverwatch.com\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])osu!/i", "<a href=\"https://osu.ppy.sh\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Nox APP Player/i", "<a href=\"https://bignox.com\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Battlefield 4/i", "<a href=\"https://www.battlefield.com/games/battlefield-4\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])World of Warships/i", "<a href=\"https://worldofwarships.asia/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Lineage II/i", "<a href=\"http://lineage2.plaync.com.tw/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Spotify/i", "<a href=\"https://www.spotify.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
-                                            $gameName = preg_replace("/(?<![#>\".\/])Warframe/i", "<a href=\"https://www.warframe.com/\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            foreach (array_keys($gameList) as $gameKey) {
+                                                $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target='_blank'><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            }
 
                                             echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$gameName.'</td></tr>';
                                         }
