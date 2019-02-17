@@ -446,14 +446,13 @@ $member_count = $discordApi->getMemberCount();
                                                 $btnColor = "success";
                                             }
 
-                                            $gameList = array(
+                                            $appList = array(
                                                 "Minecraft" => "https://minecraft.net/",
                                                 "Apex Legends" => "https://www.ea.com/games/apex-legends",
                                                 "Grand Theft Auto V" => "https://www.rockstargames.com/V/",
                                                 "PLAYERUNKNOWN'S BATTLEGROUNDS" => "https://www.pubg.com/",
                                                 "Euro Truck Simulator 2" => "https://www.eurotrucksimulator2.com/",
                                                 "League of Legends" => "https://lol.garena.tw/",
-                                                "Tom Clancy's Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
                                                 "Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
                                                 "Overwatch" => "https://playoverwatch.com",
                                                 "osu!" => "https://osu.ppy.sh",
@@ -465,21 +464,27 @@ $member_count = $discordApi->getMemberCount();
                                                 "Warframe" => "https://www.warframe.com/",
                                                 "Robocraft" => "https://robocraftgame.com/",
                                                 "Trove" => "https://www.trionworlds.com/trove/",
-                                                "Escape from Tarkov" => "https://www.escapefromtarkov.com/"
+                                                "Escape from Tarkov" => "https://www.escapefromtarkov.com/",
+                                                "Destiny 2" => "https://www.destinythegame.com/",
+                                                "Google Chrome" => "https://www.google.com/chrome/",
+                                                "Black Squad" => "http://www.blacksquad.com/",
+                                                "Anthem™" => "https://www.ea.com/games/anthem",
+                                                "ROBLOX" => "https://www.roblox.com/",
+                                                "PhpStorm" => "https://www.jetbrains.com/phpstorm/"
                                             );
 
-                                            $gameName = $member->game->name;
-                                            if (in_array($gameName, array_keys($gameList))) {
-                                                foreach (array_keys($gameList) as $gameKey) {
-                                                    $gameName = preg_replace("/(?<![#>\".\/])".$gameKey."/i", "<a href=\"".$gameList[$gameKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $gameName);
+                                            $appName = $member->game->name;
+                                            if (in_array($appName, array_keys($appList))) {
+                                                foreach (array_keys($appList) as $appKey) {
+                                                    $appName = preg_replace("/(?<![#>\".\/])".$appKey."/i", "<a href=\"".$appList[$appKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
                                                 }
                                             } else {
-                                                if (isset($gameName)) {
-                                                    $gameName = '<a href="javascript:;" style="color: #ba0000" onclick="alert(\'遊戲/應用程式「'.$gameName.'」未註冊在我們的清單，無法取得網址。\\n\\n如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。\');"><i class="fa fa-exclamation-circle" style="color: #ba0000"></i> '.$gameName.'</a>';
+                                                if (isset($appName)) {
+                                                    $appName = '<a href="javascript:;" style="color: #ba0000" onclick="alert(\'遊戲/應用程式「'.addslashes($appName).'」未註冊在我們的清單，無法取得網址。\\n\\n如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。\');"><i class="fa fa-exclamation-circle" style="color: #ba0000"></i> '.$appName.'</a>';
                                                 }
                                             }
 
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$gameName.'</td></tr>';
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
                                         }
                                     }
                                     ?>
