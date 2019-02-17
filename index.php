@@ -472,7 +472,8 @@ $member_count = $discordApi->getMemberCount();
                                                 "ROBLOX" => "https://www.roblox.com/",
                                                 "PhpStorm" => "https://www.jetbrains.com/phpstorm/",
                                                 "Rust" => "https://rust.facepunch.com/",
-                                                "Brawlhalla" => "https://www.brawlhalla.com/"
+                                                "Brawlhalla" => "https://www.brawlhalla.com/",
+                                                "Counter-Strike: Global Offensive" => "https://blog.counter-strike.net/"
                                             );
 
                                             $appName = $member->game->name;
