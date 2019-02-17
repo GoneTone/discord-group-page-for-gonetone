@@ -420,9 +420,9 @@ $member_count = $discordApi->getMemberCount();
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th width="5%">#</th>
-                                        <th width="47%">用戶名 / 暱稱</th>
-                                        <th width="48%">正在玩</th>
+                                        <th class="align-middle" width="5%">#</th>
+                                        <th class="align-middle" width="47%">用戶名 / 暱稱</th>
+                                        <th class="align-middle" width="48%">正在玩 / 正在使用</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -470,7 +470,9 @@ $member_count = $discordApi->getMemberCount();
                                                 "Black Squad" => "http://www.blacksquad.com/",
                                                 "Anthem™" => "https://www.ea.com/games/anthem",
                                                 "ROBLOX" => "https://www.roblox.com/",
-                                                "PhpStorm" => "https://www.jetbrains.com/phpstorm/"
+                                                "PhpStorm" => "https://www.jetbrains.com/phpstorm/",
+                                                "Rust" => "https://rust.facepunch.com/",
+                                                "Brawlhalla" => "https://www.brawlhalla.com/"
                                             );
 
                                             $appName = $member->game->name;
@@ -513,9 +515,9 @@ $member_count = $discordApi->getMemberCount();
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th width="5%">#</th>
-                                        <th width="47%">語音頻道名稱</th>
-                                        <th width="48%">頻道內成員</th>
+                                        <th class="align-middle" width="5%">#</th>
+                                        <th class="align-middle" width="47%">語音頻道名稱</th>
+                                        <th class="align-middle" width="48%">頻道內成員</th>
                                     </tr>
                                     </thead>
                                     <tbody>
