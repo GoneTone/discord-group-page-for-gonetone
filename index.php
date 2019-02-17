@@ -473,7 +473,9 @@ $member_count = $discordApi->getMemberCount();
                                                 "PhpStorm" => "https://www.jetbrains.com/phpstorm/",
                                                 "Rust" => "https://rust.facepunch.com/",
                                                 "Brawlhalla" => "https://www.brawlhalla.com/",
-                                                "Counter-Strike: Global Offensive" => "https://blog.counter-strike.net/"
+                                                "Counter-Strike: Global Offensive" => "https://blog.counter-strike.net/",
+                                                "Bright Memory - Episode 1" => "https://store.steampowered.com/app/955050/Bright_Memory__Episode_1/",
+                                                "Wallpaper Engine" => "https://store.steampowered.com/app/431960/Wallpaper_Engine/"
                                             );
 
                                             $appName = $member->game->name;
