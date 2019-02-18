@@ -14,6 +14,41 @@ $channel_count = $discordApi->getChannelCount();
 $member_list = $discordApi->getMembers();
 $member_count = $discordApi->getMemberCount();
 
+$appDataList = array(
+    "Minecraft" => "https://minecraft.net/",
+    "Apex Legends" => "https://www.ea.com/games/apex-legends",
+    "Grand Theft Auto V" => "https://www.rockstargames.com/V/",
+    "PLAYERUNKNOWN'S BATTLEGROUNDS" => "https://www.pubg.com/",
+    "Euro Truck Simulator 2" => "https://www.eurotrucksimulator2.com/",
+    "League of Legends" => "https://lol.garena.tw/",
+    "Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
+    "Overwatch" => "https://playoverwatch.com",
+    "osu!" => "https://osu.ppy.sh",
+    "Nox APP Player" => "https://bignox.com",
+    "Battlefield 4" => "https://www.battlefield.com/games/battlefield-4",
+    "World of Warships" => "https://worldofwarships.asia/",
+    "Lineage II" => "http://lineage2.plaync.com.tw/",
+    "Spotify" => "https://www.spotify.com/",
+    "Warframe" => "https://www.warframe.com/",
+    "Robocraft" => "https://robocraftgame.com/",
+    "Trove" => "https://www.trionworlds.com/trove/",
+    "Escape from Tarkov" => "https://www.escapefromtarkov.com/",
+    "Destiny 2" => "https://www.destinythegame.com/",
+    "Google Chrome" => "https://www.google.com/chrome/",
+    "Black Squad" => "http://www.blacksquad.com/",
+    "Anthem™" => "https://www.ea.com/games/anthem",
+    "ROBLOX" => "https://www.roblox.com/",
+    "PhpStorm" => "https://www.jetbrains.com/phpstorm/",
+    "Rust" => "https://rust.facepunch.com/",
+    "Brawlhalla" => "https://www.brawlhalla.com/",
+    "Counter-Strike: Global Offensive" => "https://blog.counter-strike.net/",
+    "Bright Memory - Episode 1" => "https://store.steampowered.com/app/955050/Bright_Memory__Episode_1/",
+    "Wallpaper Engine" => "https://store.steampowered.com/app/431960/Wallpaper_Engine/",
+    "Mountain" => "http://mountain-game.com/",
+    "BioShock Infinite" => "https://bioshockinfinite.ghoststorygames.com/the-game",
+    "Assassin's Creed IV Black Flag" => "https://www.ubisoft.com/en-us/game/assassins-creed-iv-black-flag/"
+);
+
 //var_dump($discordApi->getRawData());
 ?>
 <!--
@@ -446,42 +481,10 @@ $member_count = $discordApi->getMemberCount();
                                                 $btnColor = "success";
                                             }
 
-                                            $appList = array(
-                                                "Minecraft" => "https://minecraft.net/",
-                                                "Apex Legends" => "https://www.ea.com/games/apex-legends",
-                                                "Grand Theft Auto V" => "https://www.rockstargames.com/V/",
-                                                "PLAYERUNKNOWN'S BATTLEGROUNDS" => "https://www.pubg.com/",
-                                                "Euro Truck Simulator 2" => "https://www.eurotrucksimulator2.com/",
-                                                "League of Legends" => "https://lol.garena.tw/",
-                                                "Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
-                                                "Overwatch" => "https://playoverwatch.com",
-                                                "osu!" => "https://osu.ppy.sh",
-                                                "Nox APP Player" => "https://bignox.com",
-                                                "Battlefield 4" => "https://www.battlefield.com/games/battlefield-4",
-                                                "World of Warships" => "https://worldofwarships.asia/",
-                                                "Lineage II" => "http://lineage2.plaync.com.tw/",
-                                                "Spotify" => "https://www.spotify.com/",
-                                                "Warframe" => "https://www.warframe.com/",
-                                                "Robocraft" => "https://robocraftgame.com/",
-                                                "Trove" => "https://www.trionworlds.com/trove/",
-                                                "Escape from Tarkov" => "https://www.escapefromtarkov.com/",
-                                                "Destiny 2" => "https://www.destinythegame.com/",
-                                                "Google Chrome" => "https://www.google.com/chrome/",
-                                                "Black Squad" => "http://www.blacksquad.com/",
-                                                "Anthem™" => "https://www.ea.com/games/anthem",
-                                                "ROBLOX" => "https://www.roblox.com/",
-                                                "PhpStorm" => "https://www.jetbrains.com/phpstorm/",
-                                                "Rust" => "https://rust.facepunch.com/",
-                                                "Brawlhalla" => "https://www.brawlhalla.com/",
-                                                "Counter-Strike: Global Offensive" => "https://blog.counter-strike.net/",
-                                                "Bright Memory - Episode 1" => "https://store.steampowered.com/app/955050/Bright_Memory__Episode_1/",
-                                                "Wallpaper Engine" => "https://store.steampowered.com/app/431960/Wallpaper_Engine/"
-                                            );
-
                                             $appName = $member->game->name;
-                                            if (in_array($appName, array_keys($appList))) {
-                                                foreach (array_keys($appList) as $appKey) {
-                                                    $appName = preg_replace("/(?<![#>\".\/])".$appKey."/i", "<a href=\"".$appList[$appKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
+                                            if (in_array($appName, array_keys($appDataList))) {
+                                                foreach (array_keys($appDataList) as $appDataKey) {
+                                                    $appName = preg_replace("/(?<![#>\".\/])".$appDataKey."/i", "<a href=\"".$appDataList[$appDataKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
                                                 }
                                             } else {
                                                 if (isset($appName)) {
@@ -499,6 +502,7 @@ $member_count = $discordApi->getMemberCount();
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <a href="javascript:;" class="genric-btn danger-border circle" data-dismiss="modal" onclick="setTimeout(function() {$('#appDataList').modal();}, 500);">已註冊資料清單</a>
                         <a href="javascript:;" class="genric-btn success-border circle" data-dismiss="modal">關閉</a>
                     </div>
                 </div>
@@ -554,6 +558,30 @@ $member_count = $discordApi->getMemberCount();
                                     ?>
                                     </tbody>
                                 </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="javascript:;" class="genric-btn success-border circle" data-dismiss="modal">關閉</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="appDataList" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><?php echo '已註冊之遊戲或應用程式資料 (<font color="#00ba49">總共 '.count($appDataList).' 筆資料</font>)'; ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <?php
+                                foreach (array_keys($appDataList) as $appDataKey) {
+                                    echo '<div class="list-group list-group-flush"><a href="'.$appDataList[$appDataKey].'" target="_blank" class="list-group-item list-group-item-action"><div class="d-flex w-100 justify-content-between"><h5 class="mb-1 text-primary" style="word-break: break-all;">'.$appDataKey.'</h5></div><small class="text-muted" style="word-break: break-all;">'.$appDataList[$appDataKey].'</small></a></div>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
