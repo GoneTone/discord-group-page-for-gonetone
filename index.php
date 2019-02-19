@@ -46,8 +46,10 @@ $appDataList = array(
     "Wallpaper Engine" => "https://store.steampowered.com/app/431960/Wallpaper_Engine/",
     "Mountain" => "http://mountain-game.com/",
     "BioShock Infinite" => "https://bioshockinfinite.ghoststorygames.com/the-game",
-    "Assassin's Creed IV Black Flag" => "https://www.ubisoft.com/en-us/game/assassins-creed-iv-black-flag/"
+    "Assassin's Creed IV Black Flag" => "https://www.ubisoft.com/en-us/game/assassins-creed-iv-black-flag/",
+    "Black Desert Online" => "https://www.blackdesert.com.tw/"
 );
+ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //陣列重新排序 (不區分大小寫)
 
 //var_dump($discordApi->getRawData());
 ?>
