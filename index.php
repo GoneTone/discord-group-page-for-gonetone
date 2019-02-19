@@ -22,6 +22,7 @@ $appDataList = array(
     "Euro Truck Simulator 2" => "https://www.eurotrucksimulator2.com/",
     "League of Legends" => "https://lol.garena.tw/",
     "Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
+    "Tom Clancy's Rainbow Six Siege" => "https://rainbow6.ubi.com/siege/home/",
     "Overwatch" => "https://playoverwatch.com",
     "osu!" => "https://osu.ppy.sh",
     "Nox APP Player" => "https://bignox.com",
@@ -49,7 +50,7 @@ $appDataList = array(
     "Assassin's Creed IV Black Flag" => "https://www.ubisoft.com/en-us/game/assassins-creed-iv-black-flag/",
     "Black Desert Online" => "https://www.blackdesert.com.tw/"
 );
-ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //陣列重新排序 (不區分大小寫)
+ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
 
 //var_dump($discordApi->getRawData());
 ?>
@@ -486,7 +487,9 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //陣列重新排序 (不區�
                                             $appName = $member->game->name;
                                             if (in_array($appName, array_keys($appDataList))) {
                                                 foreach (array_keys($appDataList) as $appDataKey) {
-                                                    $appName = preg_replace("/(?<![#>\".\/])".$appDataKey."/i", "<a href=\"".$appDataList[$appDataKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
+                                                    if ($appDataKey == $appName) {
+                                                        $appName = preg_replace("/(?<![#>\".\/])".$appDataKey."/i", "<a href=\"".$appDataList[$appDataKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
+                                                    }
                                                 }
                                             } else {
                                                 if (isset($appName)) {
