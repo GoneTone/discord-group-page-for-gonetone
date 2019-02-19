@@ -4,6 +4,7 @@ include_once("api/discordApi.php");
 use GoneTone\DiscordApi;
 
 $serverId = "434607247071641600";
+$ownerId = "297957463649550339";
 
 $discordApi = new DiscordApi($serverId);
 $discordApi->fetch();
@@ -455,6 +456,7 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
+                                <br><p class="text-danger">* 群組創建人顯示為實心。</p>
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
@@ -472,7 +474,9 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                                             $name = $member->username;
                                         }
                                         if ($member->bot === true) {
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-secondary btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                            $name = "【機器人】".$name;
+                                            $btnColor = "secondary";
+                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
                                         } else {
                                             if ($member->status === "online") {
                                                 $btnColor = "success";
@@ -487,7 +491,7 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                                             $appName = $member->game->name;
                                             if (in_array($appName, array_keys($appDataList))) {
                                                 foreach (array_keys($appDataList) as $appDataKey) {
-                                                    if ($appDataKey == $appName) {
+                                                    if ($appDataKey === $appName) {
                                                         $appName = preg_replace("/(?<![#>\".\/])".$appDataKey."/i", "<a href=\"".$appDataList[$appDataKey]."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
                                                     }
                                                 }
@@ -497,7 +501,12 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                                                 }
                                             }
 
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            if ($member->id === $ownerId) {
+                                                //$name = "【群組創建人】".$name;
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            } else {
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            }
                                         }
                                     }
                                     ?>
@@ -524,6 +533,7 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
+                                <br><p class="text-danger">* 群組創建人顯示為實心。</p>
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
@@ -544,7 +554,9 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                                                 $name = $member->username;
                                             }
                                             if ($member->bot === true) {
-                                                echo '<button type="button" class="btn btn-outline-secondary btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \'【機器人】'.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> 【機器人】'.$name.'</button>';
+                                                $name = "【機器人】".$name;
+                                                $btnColor = "secondary";
+                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
                                             } else {
                                                 if ($member->status === "online") {
                                                     $btnColor = "success";
@@ -555,7 +567,13 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣�
                                                 } else {
                                                     $btnColor = "success";
                                                 }
-                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+
+                                                if ($member->id === $ownerId) {
+                                                    //$name = "【群組創建人】".$name;
+                                                    echo '<button type="button" class="btn btn-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                } else {
+                                                    echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                }
                                             }
                                         }
                                         echo '</td></tr>';
