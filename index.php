@@ -252,8 +252,8 @@ ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //陣列重新排序 (不區�
                         </div>
                         <div class="col-md-4">
                             <div class="single-feature">
-                                <a class="image-popup-fit-width" href="assets/images/group-characteristics/anime.jpg">
-                                    <div class="thumb" style="background: url(assets/images/group-characteristics/anime.jpg);"></div>
+                                <a class="image-popup-fit-width" href="assets/images/group-characteristics/anime.jpg?v=1.1">
+                                    <div class="thumb" style="background: url(assets/images/group-characteristics/anime.jpg?v=1.1);"></div>
                                 </a>
                                 <div class="desc text-center mt-30">
                                     <h4 class="text-white">動漫、小說專區</h4>
