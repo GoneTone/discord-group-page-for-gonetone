@@ -49,7 +49,8 @@ $appDataList = array(
     "Mountain" => "http://mountain-game.com/",
     "BioShock Infinite" => "https://bioshockinfinite.ghoststorygames.com/the-game",
     "Assassin's Creed IV Black Flag" => "https://www.ubisoft.com/en-us/game/assassins-creed-iv-black-flag/",
-    "Black Desert Online" => "https://www.blackdesert.com.tw/"
+    "Black Desert Online" => "https://www.blackdesert.com.tw/",
+    "Rocket League" => "https://www.rocketleague.com/"
 );
 ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
 
