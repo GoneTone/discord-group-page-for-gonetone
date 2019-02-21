@@ -68,4 +68,3 @@ class DiscordApi {
         return $members;
     }
 }
-?>
