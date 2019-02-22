@@ -177,6 +177,11 @@ $appDataList = array(
         "url" => "https://store.steampowered.com/app/221040/Resident_Evil_6__Biohazard_6/",
         "iconFileName" => "resident-evil-6_biohazard-6.png",
         "description" => "《惡靈古堡6》是由 CAPCOM 於 2012 年出品的電子遊戲，支援遊戲平台為 PlayStation 3、PlayStation 4、Xbox 360、Xbox One 和 Windows。PlayStation 3 和 Xbox 360 日本版於 2012 年 10 月 4 日發售，美國版於 2012 年 10 月 2 日發售。"
+    ),
+    "BlueStacks" => array(
+        "url" => "https://www.bluestacks.com/",
+        "iconFileName" => "bluestacks.png",
+        "description" => "BlueStacks 是美國一家專門生產 BlueStacks App Player 及其他雲服務跨平台產品的科技公司。BlueStacks App Player 專為 Windows 和 Mac 系統電腦運行 Android 應用程式及遊戲的程式。該公司 2009 年由 McAfee 前首席技術官、Cloud.com 董事會成員創立。"
     )
 );
 ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
