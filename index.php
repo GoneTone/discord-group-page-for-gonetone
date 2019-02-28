@@ -296,7 +296,7 @@ $member_count = $discordApi->getMemberCount();
                             <div class="col-md-12">
                                 <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
                                 <br><p class="text-danger">* 群組創建人顯示為實心。</p>
-                                <table class="table table-hover">
+                                <table class="table table-hover" id="table">
                                     <thead>
                                     <tr>
                                         <th class="align-middle" width="5%">#</th>
@@ -331,17 +331,27 @@ $member_count = $discordApi->getMemberCount();
                                             if (in_array($appName, array_keys($appDataList))) {
                                                 foreach (array_keys($appDataList) as $appDataKey) {
                                                     if ($appDataKey === $appName) {
-                                                        $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appDataKey, "/")."/i", "<a href=\"".$appDataList[$appDataKey]['url']."\" target=\"_blank\" title=\"$0\"><i class=\"fa fa-external-link\"></i> $0</a>", $appName);
+                                                        if (isset($appDataList[$appDataKey]['iconFileName'])) {
+                                                            if (isset($appDataList[$appDataKey]['description'])) {
+                                                                $appDescription = $appDataList[$appDataKey]['description'];
+                                                            } else {
+                                                                $appDescription = "暫無資料。";
+                                                            }
+                                                            $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><img src="assets/images/app-icons/'.$appDataList[$appDataKey]['iconFileName'].'" width="256" class="card-img-top" alt="'.$appDataKey.' - Icon"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small><p class="card-text mt-3 text-dark">'.$appDescription.'</p></div></div></a>';
+                                                        } else {
+                                                            $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small></div></div></a>';
+                                                        }
+                                                        $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appDataKey, "/")."/i", "<a data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fa fa-external-link\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
                                                     }
                                                 }
                                             } else {
                                                 if (isset($appName)) {
-                                                    $appName = '<a href="javascript:;" style="color: #ba0000" onclick="alert(\'遊戲/應用程式「'.addslashes($appName).'」未註冊在我們的清單，無法取得網址。\\n\\n如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。\');"><i class="fa fa-exclamation-circle" style="color: #ba0000"></i> '.$appName.'</a>';
+                                                    $card = '<a href="javascript:;" data-dismiss="modal" onclick="setTimeout(function() {$(\'#appDataList\').modal();}, 500);"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appName.'</h5><p class="card-text mt-2 text-dark">此遊戲/應用程式未註冊在我們的清單，無法取得網址。<br><br>如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。</p><br><p class="text-danger mb-0">* 點擊此訊息可查看已註冊之遊戲或應用程式資料！</p></div></div></a>';
+                                                    $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appName, "/")."/i", "<a class=\"text-danger\" data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fa fa-exclamation-circle text-danger\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
                                                 }
                                             }
 
                                             if ($member->id === $ownerId) {
-                                                //$name = "【群組創建人】".$name;
                                                 echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
                                             } else {
                                                 echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
