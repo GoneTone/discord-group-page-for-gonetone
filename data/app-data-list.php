@@ -182,6 +182,16 @@ $appDataList = array(
         "url" => "https://www.bluestacks.com/",
         "iconFileName" => "bluestacks.png",
         "description" => "BlueStacks 是美國一家專門生產 BlueStacks App Player 及其他雲服務跨平台產品的科技公司。BlueStacks App Player 專為 Windows 和 Mac 系統電腦運行 Android 應用程式及遊戲的程式。該公司 2009 年由 McAfee 前首席技術官、Cloud.com 董事會成員創立。"
+    ),
+    "Visual Studio Code" => array(
+        "url" => "https://code.visualstudio.com/",
+        "iconFileName" => "visual-studio-code.png",
+        "description" => "Visual Studio Code (簡稱 VS Code) 是一個由微軟開發的，同時支援 Windows、Linux、和 macOS 系統且開放原始碼的程式碼編輯器，它支援測試，並內建了 Git 版本控制功能，同時也具有開發環境功能，例如程式碼補全 (類似於 IntelliSense)、程式碼片段、和程式碼重構等，該編輯器支援用戶個性化組態，例如改變主題顏色、鍵盤捷徑等各種屬性和參數，還在編輯器中內建了擴充程式管理的功能。"
+    ),
+    "Badlion Client" => array(
+        "url" => "https://client.badlion.net/",
+        "iconFileName" => "badlion-client.png",
+        "description" => "Badlion Client 是一個多功能的 Minecraft 啟動器，內置客戶端反作弊，FPS 優化，mods 等等。"
     )
 );
 ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
