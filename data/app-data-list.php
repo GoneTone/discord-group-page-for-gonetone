@@ -212,6 +212,11 @@ $appDataList = array(
         "url" => "http://www.l4d.com/",
         "iconFileName" => "l4d2.png",
         "description" => "《惡靈勢力 2》是 2008 年由維爾福開發、以喪屍為主題的恐怖生存類遊戲《惡靈勢力》的續作，遊戲初次於 2009 年電玩E3展亮相，並已在 2009 年 11 月 17 日於 PC 以及 Xbox 360 平台上發行。"
+    ),
+    "Garry's Mod" => array(
+        "url" => "https://www.garrysmod.com/",
+        "iconFileName" => "garrysmod.png",
+        "description" => "蓋瑞模組最初是一個利用 Source 引擎製作的戰慄時空的遊戲模組，由 Facepunch Studios 開發，原為免費模組，後於第十版時正式加入 Steam，並且需要花費 9.99 美金來購買其遊玩權。"
     )
 );
 ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
