@@ -192,6 +192,26 @@ $appDataList = array(
         "url" => "https://client.badlion.net/",
         "iconFileName" => "badlion-client.png",
         "description" => "Badlion Client 是一個多功能的 Minecraft 啟動器，內置客戶端反作弊，FPS 優化，mods 等等。"
+    ),
+    "跑跑卡丁車" => array(
+        "url" => "https://tw.beanfun.com/kartrider/",
+        "iconFileName" => "kartrider.jpg",
+        "description" => "《跑跑卡丁車》是韓國 NEXON 公司出品的一個休閒類賽車競速遊戲，亦是爆爆王的衍生遊戲，在中國大陸的代理是世紀天成，在臺灣及香港則是遊戲橘子代理。"
+    ),
+    "跑跑卡丁車 KartRider" => array(
+        "url" => "https://tw.beanfun.com/kartrider/",
+        "iconFileName" => "kartrider.jpg",
+        "description" => "《跑跑卡丁車》是韓國 NEXON 公司出品的一個休閒類賽車競速遊戲，亦是爆爆王的衍生遊戲，在中國大陸的代理是世紀天成，在臺灣及香港則是遊戲橘子代理。"
+    ),
+    "KartRider" => array(
+        "url" => "https://tw.beanfun.com/kartrider/",
+        "iconFileName" => "kartrider.jpg",
+        "description" => "《跑跑卡丁車》是韓國 NEXON 公司出品的一個休閒類賽車競速遊戲，亦是爆爆王的衍生遊戲，在中國大陸的代理是世紀天成，在臺灣及香港則是遊戲橘子代理。"
+    ),
+    "Left 4 Dead 2" => array(
+        "url" => "http://www.l4d.com/",
+        "iconFileName" => "l4d2.png",
+        "description" => "《惡靈勢力 2》是 2008 年由維爾福開發、以喪屍為主題的恐怖生存類遊戲《惡靈勢力》的續作，遊戲初次於 2009 年電玩E3展亮相，並已在 2009 年 11 月 17 日於 PC 以及 Xbox 360 平台上發行。"
     )
 );
 ksort($appDataList, SORT_STRING | SORT_FLAG_CASE); //依據 key 重新排序陣列 (不區分大小寫)
