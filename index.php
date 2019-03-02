@@ -18,6 +18,15 @@ $channel_count = $discordApi->getChannelCount();
 $member_list = $discordApi->getMembers();
 $member_count = $discordApi->getMemberCount();
 
+/* 不顯示語音頻道 ID 清單 */
+$noDisplayChannelId = array(
+    "551083299242770432",
+    "466171798212313108",
+    "551082957469646852",
+    "466171871893651458",
+    "551083224185438223"
+);
+
 //var_dump($discordApi->getRawData());
 ?>
 <!--
@@ -375,7 +384,7 @@ $member_count = $discordApi->getMemberCount();
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><?php echo '語音頻道名單 (<font color="#00ba49">總共 '.$channel_count.' 個頻道</font>)'; ?></h4>
+                        <h4 class="modal-title"><?php echo '語音頻道名單 (<font color="#00ba49">總共 '.($channel_count - count($noDisplayChannelId)).' 個頻道</font>)'; ?></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
@@ -386,46 +395,47 @@ $member_count = $discordApi->getMemberCount();
                                 <table class="table table-hover">
                                     <thead>
                                     <tr>
-                                        <th class="align-middle" width="5%">#</th>
-                                        <th class="align-middle" width="47%">語音頻道名稱</th>
-                                        <th class="align-middle" width="48%">頻道內成員</th>
+                                        <th class="align-middle" width="50%">語音頻道名稱</th>
+                                        <th class="align-middle" width="50%">頻道內成員</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php
                                     foreach ($channel_list as $count => $channel) {
-                                        $inChannel = $discordApi->getMembersInChannel($channel->id);
-                                        echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;">'.$channel->name.'</td><td class="align-middle" width="48%" style="word-break: break-all;">';
-                                        foreach ($inChannel as $member) {
-                                            if (isset($member->nick)) {
-                                                $name = $member->nick;
-                                            } else {
-                                                $name = $member->username;
-                                            }
-                                            if ($member->bot === true) {
-                                                $name = "【機器人】".$name;
-                                                $btnColor = "secondary";
-                                                echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
-                                            } else {
-                                                if ($member->status === "online") {
-                                                    $btnColor = "success";
-                                                } else if ($member->status === "idle") {
-                                                    $btnColor = "warning";
-                                                } else if ($member->status === "dnd") {
-                                                    $btnColor = "danger";
+                                        if (!in_array($channel->id, $noDisplayChannelId)) {
+                                            $inChannel = $discordApi->getMembersInChannel($channel->id);
+                                            echo '<tr><td class="align-middle" width="50%" style="word-break: break-all;">'.$channel->name.'</td><td class="align-middle" width="50%" style="word-break: break-all;">';
+                                            foreach ($inChannel as $member) {
+                                                if (isset($member->nick)) {
+                                                    $name = $member->nick;
                                                 } else {
-                                                    $btnColor = "success";
+                                                    $name = $member->username;
                                                 }
-
-                                                if ($member->id === $ownerId) {
-                                                    //$name = "【群組創建人】".$name;
-                                                    echo '<button type="button" class="btn btn-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
-                                                } else {
+                                                if ($member->bot === true) {
+                                                    $name = "【機器人】".$name;
+                                                    $btnColor = "secondary";
                                                     echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                } else {
+                                                    if ($member->status === "online") {
+                                                        $btnColor = "success";
+                                                    } else if ($member->status === "idle") {
+                                                        $btnColor = "warning";
+                                                    } else if ($member->status === "dnd") {
+                                                        $btnColor = "danger";
+                                                    } else {
+                                                        $btnColor = "success";
+                                                    }
+
+                                                    if ($member->id === $ownerId) {
+                                                        //$name = "【群組創建人】".$name;
+                                                        echo '<button type="button" class="btn btn-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                    } else {
+                                                        echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                    }
                                                 }
                                             }
+                                            echo '</td></tr>';
                                         }
-                                        echo '</td></tr>';
                                     }
                                     ?>
                                     </tbody>
