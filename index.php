@@ -9,14 +9,40 @@ use GoneTone\DiscordApi;
 $serverId = "434607247071641600";
 $ownerId = "297957463649550339";
 
-$discordApi = new DiscordApi($serverId);
+$gonetoneBotApiKey = "0RAPWYX-6834PY2-QVMTK47-RDSMYEK";
+
+$selfDevelopedBot = array(
+    "434386322518704128",
+    "436395096036868106"
+);
+
+$discordApi = new DiscordApi($serverId, $gonetoneBotApiKey);
 $discordApi->fetch();
 
-$server_title = $discordApi->getServerTitle();
-$channel_list = $discordApi->getChannels();
-$channel_count = $discordApi->getChannelCount();
-$member_list = $discordApi->getMembers();
-$member_count = $discordApi->getMemberCount();
+$serverTitle = $discordApi->getServerTitle();
+
+$channelList = $discordApi->getChannels();
+$channelCount = $discordApi->getChannelCount();
+
+$allMemberList = $discordApi->getAllMembers();
+$allMemberCount = $discordApi->getAllMemberCount();
+$allMemberNoBotList = $discordApi->getAllMembersNoBot();
+$allMemberNoBotCount = $discordApi->getAllMemberNoBotCount();
+$allBotList = $discordApi->getAllBots();
+$allBotCount = $discordApi->getAllBotCount();
+$onlineMemberList = $discordApi->getOnlineMembers();
+$onlineMemberCount = $discordApi->getOnlineMemberCount();
+$idleMemberList = $discordApi->getIdleMembers();
+$idleMemberCount = $discordApi->getIdleMemberCount();
+$dndMemberList = $discordApi->getDndMembers();
+$dndMemberCount = $discordApi->getDndMemberCount();
+$offlineMemberList = $discordApi->getOfflineMembers();
+$offlineMemberCount = $discordApi->getOfflineMemberCount();
+$gamePlayingMemberList = $discordApi->getGamePlayingMembers();
+$gamePlayingMemberCount = $discordApi->getGamePlayingMemberCount();
+
+//$member_list = $discordApi->getMembers();
+//$member_count = $discordApi->getMemberCount();
 
 /* 不顯示語音頻道 ID 清單 */
 $noDisplayChannelId = array(
@@ -30,7 +56,7 @@ $noDisplayChannelId = array(
 //var_dump($discordApi->getRawData());
 ?>
 <!--
-    <?php echo $server_title." | Discord 群組"."\n"; ?>
+    <?php echo $serverTitle." | Discord 群組"."\n"; ?>
     https://discord.reh.tw/
 
     Developed by 張文相 (Zhang Wenxiang)
@@ -69,7 +95,7 @@ $noDisplayChannelId = array(
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="theme-color" content="#45A1EF">
-        <title><?php echo $server_title." | Discord 群組"; ?></title>
+        <title><?php echo $serverTitle." | Discord 群組"; ?></title>
         <link rel="shortcut icon" href="favicon.ico">
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-16x16.png" sizes="16x16">
         <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-32x32.png" sizes="32x32">
@@ -81,34 +107,34 @@ $noDisplayChannelId = array(
         <link rel="apple-touch-icon-precomposed" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
         <link rel="image_src" type="image/jpeg" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
         <meta name="author" content="張文相 Zhang Wenxiang">
-        <meta name="description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
-        <meta property="description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+        <meta name="description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+        <meta property="description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
         <meta name="msapplication-TileImage" content="https://discord.reh.tw/assets/images/og/logo-256x256.png">
         <meta property="fb:app_id" content="344099459299612">
         <meta property="article:author" content="https://www.facebook.com/GoneToneDY/">
         <meta property="og:site_name" content="旋風之音 GoneTone">
         <meta property="og:locale" content="zh_tw">
         <meta property="og:type" content="website">
-        <meta property="og:title" content="<?php echo $server_title." | Discord 群組"; ?>">
-        <meta property="og:description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+        <meta property="og:title" content="<?php echo $serverTitle." | Discord 群組"; ?>">
+        <meta property="og:description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
         <meta property="og:url" content="https://discord.reh.tw">
         <meta property="og:image" content="https://discord.reh.tw/assets/images/og/banner.png">
         <meta property="og:image:width" content="1200">
         <meta property="og:image:height" content="630">
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="<?php echo $server_title." | Discord 群組"; ?>">
-        <meta name="twitter:description" content="歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+        <meta name="twitter:title" content="<?php echo $serverTitle." | Discord 群組"; ?>">
+        <meta name="twitter:description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
         <meta name="twitter:image" content="https://discord.reh.tw/assets/images/og/banner.png">
         <meta name="twitter:site" content="@TPGoneTone">
         <meta name="twitter:creator" content="@TPGoneTone">
         <link href="//fonts.googleapis.com/css?family=Poppins:300,500,600" rel="stylesheet">
+        <link rel="stylesheet" href="assets/lib/fontawesome-5.9.0/css/all.min.css">
         <link rel="stylesheet" href="assets/css/linearicons.css">
         <link rel="stylesheet" href="assets/css/owl.carousel.css">
-        <link rel="stylesheet" href="assets/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/nice-select.css">
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/css/main.css?v=1.0.4">
+        <link rel="stylesheet" href="assets/css/main.css?v=1.0.5">
     </head>
     <body>
         <div class="main-wrapper-first">
@@ -139,9 +165,9 @@ $noDisplayChannelId = array(
                         <div class="row height align-items-center">
                             <div class="col-lg-7">
                                 <div class="banner-content">
-                                    <h1 class="text-white text-uppercase mb-10"><?php echo $server_title; ?></h1>
-                                    <h5 class="text-white mb-30"><?php echo '目前有 <font color="#15ba00">'.$member_count.'</font> 人在線'; ?> <a href="javascript:;" class="genric-btn info-border circle medium" onclick="$('#discordOnlineMembers').modal();">線上名單</a> <a href="javascript:;" class="genric-btn info-border circle medium" onclick="$('#discordVoiceChannels').modal();">語音頻道</a></h5>
-                                    <h5 class="text-white mb-30">歡迎加入「<?php echo $server_title; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，群組內還有 24 小時播放音樂的頻道！</h5>
+                                    <h1 class="text-white mb-10"><?php echo $serverTitle; ?></h1>
+                                    <h5 class="text-white mb-30"><?php echo '成員數共有 <kbd><kbd class="text-success">'.$allMemberCount.'</kbd></kbd> 人'; ?></h5>
+                                    <h5 class="text-white mb-30">歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，群組內還有 24 小時播放音樂的頻道！</h5>
                                     <a href="javascript:;" class="primary-btn d-inline-flex align-items-center" onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span class="lnr lnr-arrow-right"></span></a>
                                 </div>
                             </div>
@@ -156,12 +182,28 @@ $noDisplayChannelId = array(
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="section-title text-center">
-                                <h2>共同聊天的一個群組</h2>
+                                <h2><i class="far fa-comments"></i> 共同聊天的一個群組</h2>
                                 <p>不管是玩多人線上遊戲組隊或聊天聊動漫聊科技，都可以利用我們的頻道，找尋夥伴！</p>
-                                <br>
-                                <a class="image-popup-no-margins" href="assets/images/discord_group.png">
-                                    <img src="assets/images/discord_group.png" class="img-fluid d-block rounded">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="single-remark">
+                        <div class="row no-gutters">
+                            <div class="col-md-6">
+                                <a class="image-popup-fit-width" href="assets/images/discord_group.png">
+                                    <div class="remark-thumb" style="background: url('assets/images/discord_group.png');"></div>
                                 </a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="remark-desc">
+                                    <h4><i class="fas fa-server"></i> 群組成員狀態</h4>
+                                    <p>此群成員數共有 <a href="javascript:;" onclick="$('#discordAllMembers').modal();"><strong><u><?php echo $allMemberCount; ?></u></strong></a> 人！</p>
+                                    <p>- 機器人 <a href="javascript:;" onclick="$('#discordAllBots').modal();"><strong><u><?php echo $allBotCount; ?></u></strong></a> 隻。
+                                        <br>- 非機器人 <a href="javascript:;" onclick="$('#discordAllMembersNoBot').modal();"><strong><u><?php echo $allMemberNoBotCount; ?></u></strong></a> 人。</p>
+                                    <p>線上 <strong><u><?php echo $onlineMemberCount; ?></u></strong> 人 | 閒置 <strong><u><?php echo $idleMemberCount; ?></u></strong> 人 | 請勿打擾 <strong><u><?php echo $dndMemberCount; ?></u></strong> 人 | 離線 <strong><u><?php echo $offlineMemberCount; ?></u></strong> 人
+                                        <br>正在玩遊戲 <strong><u><?php echo $gamePlayingMemberCount; ?></u></strong> 人</p>
+                                    <a href="javascript:;" onclick="$('#discordAllMembers').modal();" class="primary-btn mb-2"><span>所有成員名單</span></a> <a href="javascript:;" onclick="$('#discordVoiceChannels').modal();" class="primary-btn"><span>所有語音頻道</span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -174,7 +216,7 @@ $noDisplayChannelId = array(
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="section-title text-center">
-                                <h2 class="text-white">群組的特色</h2>
+                                <h2 class="text-white"><i class="fas fa-bullhorn"></i> 群組的特色</h2>
                                 <p class="text-white">我們有專屬的表情符號、各種代表身分的組別、24 小時音樂播放頻道、遊戲專用語音頻道和動漫、小說專區</p>
                             </div>
                         </div>
@@ -245,14 +287,14 @@ $noDisplayChannelId = array(
                     <div class="row justify-content-center">
                         <div class="col-lg-6">
                             <div class="section-title text-center">
-                                <h2>成員們比較常在玩的部分遊戲</h2>
+                                <h2><i class="fas fa-gamepad"></i> 成員們比較常在玩的部分遊戲</h2>
                                 <p>我們群組內成員比較常玩的遊戲，可以尋找遊戲夥伴，下方只列出部分遊戲，未列出完整清單 (太多了</p>
                             </div>
                         </div>
                     </div>
                     <?php
                     foreach (array_keys($gameList) as $gameKey) {
-                        echo '<div class="single-remark"><div class="row no-gutters"><div class="col-md-6"><a class="image-popup-fit-width" href="assets/images/game/'.$gameList[$gameKey]['imageFileName'].'"><div class="remark-thumb" style="background: url(assets/images/game/'.$gameList[$gameKey]['imageFileName'].');"></div></a></div><div class="col-md-6"><div class="remark-desc"><h4>'.$gameKey.'</h4><p>'.$gameList[$gameKey]['description'].'</p><a href="'.$gameList[$gameKey]['wikipediaUrl'].'" class="primary-btn mb-2" target="_blank"><span>了解更多</span></a> <a href="'.$gameList[$gameKey]['url'].'" class="primary-btn" target="_blank"><span>'.$gameList[$gameKey]['gotoText'].'</span></a></div></div></div></div>';
+                        echo '<div class="single-remark text-center"><div class="row no-gutters"><div class="col-md-6"><a class="image-popup-fit-width" href="assets/images/game/'.$gameList[$gameKey]['imageFileName'].'"><div class="remark-thumb" style="background: url(assets/images/game/'.$gameList[$gameKey]['imageFileName'].');"></div></a></div><div class="col-md-6"><div class="remark-desc"><h4>'.$gameKey.'</h4><p>'.$gameList[$gameKey]['description'].'</p><a href="'.$gameList[$gameKey]['wikipediaUrl'].'" class="primary-btn mb-2" target="_blank"><span>了解更多</span></a> <a href="'.$gameList[$gameKey]['url'].'" class="primary-btn" target="_blank"><span>'.$gameList[$gameKey]['gotoText'].'</span></a></div></div></div></div>';
                     }
                     ?>
                 </div>
@@ -264,8 +306,8 @@ $noDisplayChannelId = array(
                         </div>
                         <div class="col-lg-7">
                             <div class="story-box">
-                                <h4 class="text-uppercase mb-10">現在就加入我們的群組</h4>
-                                <p>加入「<?php echo $server_title; ?>」Discord 群組，一起玩遊戲、聽音樂、討論動漫與科技，隨時都可尋找遊戲夥伴，一同打遊戲！</p>
+                                <h4 class="text-uppercase mb-10"><i class="far fa-hand-point-right"></i> 現在就加入我們的群組</h4>
+                                <p>加入「<?php echo $serverTitle; ?>」Discord 群組，一起玩遊戲、聽音樂、討論動漫與科技，隨時都可尋找遊戲夥伴，一同打遊戲！</p>
                                 <br>
                                 <a href="javascript:;" class="primary-btn d-inline-flex align-items-center" onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span class="lnr lnr-arrow-right"></span></a>
                             </div>
@@ -280,30 +322,30 @@ $noDisplayChannelId = array(
                             <div class="logo">
                                 <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png?v=1.0.1" width="247" class="img-fluid d-block rounded"></a>
                             </div>
-                            <div class="copy-right-text">Copyright &copy; <?php $set = '2018'; $datetime = date ("Y" , mktime(date('H')+8, date('i'), date('s'), date('m'), date('d'), date('Y'))); if( $datetime == $set) {echo $datetime;}else{echo $set.'-'.$datetime;} ?> <a href="/"><?php echo $server_title; ?></a>. All rights reserved.
+                            <div class="copy-right-text">Copyright &copy; <?php $set = '2018'; $datetime = date ("Y" , mktime(date('H')+8, date('i'), date('s'), date('m'), date('d'), date('Y'))); if( $datetime == $set) {echo $datetime;}else{echo $set.'-'.$datetime;} ?> <a href="/"><?php echo $serverTitle; ?></a>. All rights reserved.
                                 <br>Developed by <a href="https://www.facebook.com/GoneToneDY" target="_blank">張文相 (Zhang Wenxiang)</a>.</div>
                             <div class="footer-social">
-                                <a href="https://www.facebook.com/GoneToneDY" target="_blank"><i class="fa fa-facebook"></i></a>
-                                <a href="https://twitter.com/TPGoneTone" target="_blank"><i class="fa fa-twitter"></i></a>
-                                <a href="https://www.youtube.com/c/GoneTone?sub_confirmation=1" target="_blank"><i class="fa fa-youtube-play"></i></a>
-                                <a href="https://github.com/GoneTone" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="https://blog.reh.tw" target="_blank"><i class="fas fa-home"></i></a>
+                                <a href="https://www.facebook.com/GoneToneDY" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                                <a href="https://twitter.com/TPGoneTone" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                                <a href="https://github.com/GoneTone" target="_blank"><i class="fab fa-github-square"></i></a>
                             </div>
                         </div>
                     </div>
                 </footer>
             </section>
         </div>
-        <div class="modal fade" id="discordOnlineMembers" role="dialog">
+        <div class="modal fade" id="discordAllMembers" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><?php echo '在線成員名單 (<font color="#00ba49">'.$member_count.' 人在線</font>)'; ?></h4>
+                        <h4 class="modal-title"><i class="fas fa-users"></i> <?php echo '所有成員名單 (<font color="#00ba49">共有 '.$allMemberCount.' 人</font>)'; ?></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
+                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">離線</button> <button type="button" class="btn btn-outline-info btn-sm my-1">機器人</button>
                                 <br><p class="text-danger">* 群組創建人顯示為實心。</p>
                                 <table class="table table-hover" id="table">
                                     <thead>
@@ -315,66 +357,212 @@ $noDisplayChannelId = array(
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach ($member_list as $count => $member) {
-                                        if (isset($member->nick)) {
-                                            $name = $member->nick;
-                                        } else {
-                                            $name = $member->username;
-                                        }
-                                        if ($member->bot === true) {
-                                            $name = "【機器人】".$name;
-                                            $btnColor = "secondary";
-                                            echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
-                                        } else {
-                                            if ($member->status === "online") {
-                                                $btnColor = "success";
-                                            } else if ($member->status === "idle") {
-                                                $btnColor = "warning";
-                                            } else if ($member->status === "dnd") {
-                                                $btnColor = "danger";
-                                            } else {
-                                                $btnColor = "success";
-                                            }
+                                    if ($allMemberList != "Unknown") {
+                                        foreach ($allMemberList as $count => $member) {
+                                            //error_log(json_encode($member) . "\n");
 
-                                            $appName = $member->game->name;
-                                            if (in_array($appName, array_keys($appDataList))) {
-                                                foreach (array_keys($appDataList) as $appDataKey) {
-                                                    if ($appDataKey === $appName) {
-                                                        if (isset($appDataList[$appDataKey]['iconFileName'])) {
-                                                            if (isset($appDataList[$appDataKey]['description'])) {
-                                                                $appDescription = $appDataList[$appDataKey]['description'];
+                                            if (isset($member->nickname)) {
+                                                $name = $member->nickname;
+                                            } else {
+                                                $name = $member->username;
+                                            }
+                                            if ($member->isBot) {
+                                                $name = "【機器人】".$name;
+                                                $btnColor = "info";
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$member->game->name.'</td></tr>';
+                                            } else {
+                                                if ($member->status === "online") {
+                                                    $btnColor = "success";
+                                                } else if ($member->status === "idle") {
+                                                    $btnColor = "warning";
+                                                } else if ($member->status === "dnd") {
+                                                    $btnColor = "danger";
+                                                } else if ($member->status === "offline") {
+                                                    $btnColor = "secondary";
+                                                } else {
+                                                    $btnColor = "success";
+                                                }
+
+                                                $appName = $member->game->name;
+                                                /*
+                                                if (in_array($appName, array_keys($appDataList))) {
+                                                    foreach (array_keys($appDataList) as $appDataKey) {
+                                                        if ($appDataKey === $appName) {
+                                                            if (isset($appDataList[$appDataKey]['iconFileName'])) {
+                                                                if (isset($appDataList[$appDataKey]['description'])) {
+                                                                    $appDescription = $appDataList[$appDataKey]['description'];
+                                                                } else {
+                                                                    $appDescription = "暫無資料。";
+                                                                }
+                                                                $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><img src="assets/images/app-icons/'.$appDataList[$appDataKey]['iconFileName'].'" width="256" class="card-img-top" alt="'.$appDataKey.' - Icon"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small><p class="card-text mt-3 text-dark">'.$appDescription.'</p></div></div></a>';
                                                             } else {
-                                                                $appDescription = "暫無資料。";
+                                                                $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small></div></div></a>';
                                                             }
-                                                            $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><img src="assets/images/app-icons/'.$appDataList[$appDataKey]['iconFileName'].'" width="256" class="card-img-top" alt="'.$appDataKey.' - Icon"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small><p class="card-text mt-3 text-dark">'.$appDescription.'</p></div></div></a>';
-                                                        } else {
-                                                            $card = '<a href="'.$appDataList[$appDataKey]['url'].'" target="_blank"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appDataKey.'</h5><small class="card-subtitle text-muted">'.$appDataList[$appDataKey]['url'].'</small></div></div></a>';
+                                                            $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appDataKey, "/")."/i", "<a data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fas fa-external-link-alt\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
                                                         }
-                                                        $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appDataKey, "/")."/i", "<a data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fa fa-external-link\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
+                                                    }
+                                                } else {
+                                                    if (isset($appName)) {
+                                                        $card = '<a href="javascript:;" data-dismiss="modal" onclick="setTimeout(function() {$(\'#appDataList\').modal();}, 500);"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appName.'</h5><p class="card-text mt-2 text-dark">此遊戲/應用程式未註冊在我們的清單，無法取得網址。<br><br>如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。</p><br><p class="text-danger mb-0">* 點擊此訊息可查看已註冊之遊戲或應用程式資料！</p></div></div></a>';
+                                                        $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appName, "/")."/i", "<a class=\"text-danger\" data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fas fa-exclamation-circle text-danger\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
                                                     }
                                                 }
-                                            } else {
-                                                if (isset($appName)) {
-                                                    $card = '<a href="javascript:;" data-dismiss="modal" onclick="setTimeout(function() {$(\'#appDataList\').modal();}, 500);"><div class="card mt-2"><div class="card-body"><h5 class="card-title mb-0 text-primary">'.$appName.'</h5><p class="card-text mt-2 text-dark">此遊戲/應用程式未註冊在我們的清單，無法取得網址。<br><br>如果您確定這是遊戲或應用程式，可以將此訊息截圖，並傳至群組標註創建者要求新增。</p><br><p class="text-danger mb-0">* 點擊此訊息可查看已註冊之遊戲或應用程式資料！</p></div></div></a>';
-                                                    $appName = preg_replace("/(?<![#>\".\/])".preg_quote($appName, "/")."/i", "<a class=\"text-danger\" data-toggle=\"collapse\" href=\"#key-number-".$count."\" aria-expanded=\"false\" aria-controls=\"key-number-".$count."\"><i class=\"fa fa-exclamation-circle text-danger\"></i> $0</a><div class=\"collapse multi-collapse\" id=\"key-number-".$count."\" data-parent=\"#table\">".$card."</div>", $appName);
-                                                }
-                                            }
+                                                */
 
-                                            if ($member->id === $ownerId) {
-                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
-                                            } else {
-                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                                if ($member->id === $ownerId) {
+                                                    echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                                } else {
+                                                    echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                                }
                                             }
                                         }
                                     }
                                     ?>
                                     </tbody>
                                 </table>
+                                <?php
+                                if ($allMemberList == "Unknown") {
+                                    echo '<div class="alert alert-danger" role="alert">無法取得資料，可能是 API 連線暫時中斷，請稍後重試。</div>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="javascript:;" class="genric-btn danger-border circle" data-dismiss="modal" onclick="setTimeout(function() {$('#appDataList').modal();}, 500);">已註冊資料清單</a>
+                        <!-- <a href="javascript:;" class="genric-btn danger-border circle" data-dismiss="modal" onclick="setTimeout(function() {$('#appDataList').modal();}, 500);">已註冊資料清單</a> -->
+                        <a href="javascript:;" class="genric-btn success-border circle" data-dismiss="modal">關閉</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="discordAllMembersNoBot" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fas fa-users"></i> <?php echo '所有成員名單 - 排除機器人 (<font color="#00ba49">共有 '.$allMemberNoBotCount.' 人</font>)'; ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">離線</button>
+                                <br><p class="text-danger">* 群組創建人顯示為實心。</p>
+                                <table class="table table-hover" id="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="align-middle" width="5%">#</th>
+                                        <th class="align-middle" width="47%">用戶名 / 暱稱</th>
+                                        <th class="align-middle" width="48%">正在玩 / 正在使用</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    if ($allMemberNoBotList != "Unknown") {
+                                        foreach ($allMemberNoBotList as $count => $member) {
+                                            //error_log(json_encode($member) . "\n");
+
+                                            if (isset($member->nickname)) {
+                                                $name = $member->nickname;
+                                            } else {
+                                                $name = $member->username;
+                                            }
+
+                                            if ($member->status === "online") {
+                                                $btnColor = "success";
+                                            } else if ($member->status === "idle") {
+                                                $btnColor = "warning";
+                                            } else if ($member->status === "dnd") {
+                                                $btnColor = "danger";
+                                            } else if ($member->status === "offline") {
+                                                $btnColor = "secondary";
+                                            } else {
+                                                $btnColor = "success";
+                                            }
+
+                                            $appName = $member->game->name;
+
+                                            if ($member->id === $ownerId) {
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            } else {
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+                                <?php
+                                if ($allMemberNoBotList == "Unknown") {
+                                    echo '<div class="alert alert-danger" role="alert">無法取得資料，可能是 API 連線暫時中斷，請稍後重試。</div>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <a href="javascript:;" class="genric-btn danger-border circle" data-dismiss="modal" onclick="setTimeout(function() {$('#appDataList').modal();}, 500);">已註冊資料清單</a> -->
+                        <a href="javascript:;" class="genric-btn success-border circle" data-dismiss="modal">關閉</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="discordAllBots" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title"><i class="fas fa-robot"></i> <?php echo '所有機器人名單 (<font color="#00ba49">共有 '.$allBotCount.' 隻</font>)'; ?></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button type="button" class="btn btn-outline-info btn-sm my-1">機器人</button>
+                                <br><p class="text-danger">* 群組自行開發架設之機器人顯示為實心。</p>
+                                <table class="table table-hover" id="table">
+                                    <thead>
+                                    <tr>
+                                        <th class="align-middle" width="5%">#</th>
+                                        <th class="align-middle" width="47%">用戶名 / 暱稱</th>
+                                        <th class="align-middle" width="48%">訊息</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    if ($allBotList != "Unknown") {
+                                        foreach ($allBotList as $count => $member) {
+                                            //error_log(json_encode($member) . "\n");
+
+                                            if (isset($member->nickname)) {
+                                                $name = $member->nickname;
+                                            } else {
+                                                $name = $member->username;
+                                            }
+
+                                            $name = "【機器人】".$name;
+                                            $btnColor = "info";
+
+                                            $appName = $member->game->name;
+
+                                            if (in_array($member->id, $selfDevelopedBot)) {
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            } else {
+                                                echo '<tr><td class="align-middle" width="5%">'.($count + 1).'</td><td class="align-middle" width="47%" style="word-break: break-all;"><button type="button" class="btn btn-outline-'.$btnColor.' btn-sm my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatarUrl.'" width="20" height="20"> '.$name.'</button></td><td class="align-middle" width="48%" style="word-break: break-all;">'.$appName.'</td></tr>';
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+                                <?php
+                                if ($allBotList == "Unknown") {
+                                    echo '<div class="alert alert-danger" role="alert">無法取得資料，可能是 API 連線暫時中斷，請稍後重試。</div>';
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <!-- <a href="javascript:;" class="genric-btn danger-border circle" data-dismiss="modal" onclick="setTimeout(function() {$('#appDataList').modal();}, 500);">已註冊資料清單</a> -->
                         <a href="javascript:;" class="genric-btn success-border circle" data-dismiss="modal">關閉</a>
                     </div>
                 </div>
@@ -384,13 +572,13 @@ $noDisplayChannelId = array(
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title"><?php echo '語音頻道名單 (<font color="#00ba49">總共 '.($channel_count - count($noDisplayChannelId)).' 個頻道</font>)'; ?></h4>
+                        <h4 class="modal-title"><i class="fas fa-microphone"></i> <?php echo '所有語音頻道名單 (<font color="#00ba49">總共 '.($channelCount - count($noDisplayChannelId)).' 個頻道</font>)'; ?></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-secondary btn-sm my-1">機器人</button>
+                                <button type="button" class="btn btn-outline-success btn-sm my-1">線上</button> <button type="button" class="btn btn-outline-warning btn-sm my-1">閒置</button> <button type="button" class="btn btn-outline-danger btn-sm my-1">請勿打擾</button> <button type="button" class="btn btn-outline-info btn-sm my-1">機器人</button>
                                 <br><p class="text-danger">* 群組創建人顯示為實心。</p>
                                 <table class="table table-hover">
                                     <thead>
@@ -401,45 +589,52 @@ $noDisplayChannelId = array(
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach ($channel_list as $count => $channel) {
-                                        if (!in_array($channel->id, $noDisplayChannelId)) {
-                                            $inChannel = $discordApi->getMembersInChannel($channel->id);
-                                            echo '<tr><td class="align-middle" width="50%" style="word-break: break-all;">'.$channel->name.'</td><td class="align-middle" width="50%" style="word-break: break-all;">';
-                                            foreach ($inChannel as $member) {
-                                                if (isset($member->nick)) {
-                                                    $name = $member->nick;
-                                                } else {
-                                                    $name = $member->username;
-                                                }
-                                                if ($member->bot === true) {
-                                                    $name = "【機器人】".$name;
-                                                    $btnColor = "secondary";
-                                                    echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
-                                                } else {
-                                                    if ($member->status === "online") {
-                                                        $btnColor = "success";
-                                                    } else if ($member->status === "idle") {
-                                                        $btnColor = "warning";
-                                                    } else if ($member->status === "dnd") {
-                                                        $btnColor = "danger";
+                                    if ($channelList != "Unknown") {
+                                        foreach ($channelList as $count => $channel) {
+                                            if (!in_array($channel->id, $noDisplayChannelId)) {
+                                                $inChannel = $discordApi->getMembersInChannel($channel->id);
+                                                echo '<tr><td class="align-middle" width="50%" style="word-break: break-all;">'.$channel->name.'</td><td class="align-middle" width="50%" style="word-break: break-all;">';
+                                                foreach ($inChannel as $member) {
+                                                    if (isset($member->nick)) {
+                                                        $name = $member->nick;
                                                     } else {
-                                                        $btnColor = "success";
+                                                        $name = $member->username;
                                                     }
-
-                                                    if ($member->id === $ownerId) {
-                                                        //$name = "【群組創建人】".$name;
-                                                        echo '<button type="button" class="btn btn-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
-                                                    } else {
+                                                    if ($member->bot === true) {
+                                                        $name = "【機器人】".$name;
+                                                        $btnColor = "info";
                                                         echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                    } else {
+                                                        if ($member->status === "online") {
+                                                            $btnColor = "success";
+                                                        } else if ($member->status === "idle") {
+                                                            $btnColor = "warning";
+                                                        } else if ($member->status === "dnd") {
+                                                            $btnColor = "danger";
+                                                        } else {
+                                                            $btnColor = "success";
+                                                        }
+
+                                                        if ($member->id === $ownerId) {
+                                                            //$name = "【群組創建人】".$name;
+                                                            echo '<button type="button" class="btn btn-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                        } else {
+                                                            echo '<button type="button" class="btn btn-outline-'.$btnColor.' btn-sm mx-1 my-1" onclick="displayUserName(this, \''.$member->username.'#'.$member->discriminator.'\');" onblur="displayNickName(this, \''.$name.'\');"><img src="'.$member->avatar_url.'" width="20" height="20"> '.$name.'</button>';
+                                                        }
                                                     }
                                                 }
+                                                echo '</td></tr>';
                                             }
-                                            echo '</td></tr>';
                                         }
                                     }
                                     ?>
                                     </tbody>
                                 </table>
+                                <?php
+                                if ($channelList == "Unknown") {
+                                    echo '<div class="alert alert-danger" role="alert">無法取得資料，可能是 API 連線暫時中斷，請稍後重試。</div>';
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
@@ -449,6 +644,7 @@ $noDisplayChannelId = array(
                 </div>
             </div>
         </div>
+        <!--
         <div class="modal fade" id="appDataList" role="dialog">
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
@@ -482,6 +678,7 @@ $noDisplayChannelId = array(
                 </div>
             </div>
         </div>
+        -->
         <script src="assets/js/vendor/jquery-3.3.1.min.js"></script>
         <script src="assets/js/popper.min.js"></script>
         <script src="assets/js/vendor/bootstrap.min.js"></script>
@@ -493,19 +690,19 @@ $noDisplayChannelId = array(
         <script type="text/javascript">
             /* 顯示用戶名 */
             function displayUserName(obj, userName) {
-                var avatarUrl = obj.getElementsByTagName("img")[0].src;
+                const avatarUrl = obj.getElementsByTagName("img")[0].src;
                 obj.innerHTML = '<img src="'+ avatarUrl +'" width="20" height="20"> ' + userName;
             }
 
             /* 顯示暱稱 */
             function displayNickName(obj, nickName) {
-                var avatarUrl = obj.getElementsByTagName("img")[0].src;
+                const avatarUrl = obj.getElementsByTagName("img")[0].src;
                 obj.innerHTML = '<img src="'+ avatarUrl +'" width="20" height="20"> ' + nickName;
             }
         </script>
         <script type="text/javascript">
             function joinDiscordGroup(code) {
-                var requestURL = "https://discord.gg/";
+                const requestURL = "https://discord.gg/";
                 window.open(requestURL + code, "_blank");
             }
         </script>
