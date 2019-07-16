@@ -166,7 +166,7 @@ $noDisplayChannelId = array(
                             <div class="col-lg-7">
                                 <div class="banner-content">
                                     <h1 class="text-white mb-10"><?php echo $serverTitle; ?></h1>
-                                    <h5 class="text-white mb-30"><?php echo '成員數共有 <kbd><kbd class="text-success">'.$allMemberCount.'</kbd></kbd> 人'; ?></h5>
+                                    <h5 class="text-white mb-30"><?php echo '成員數共有 <a href="javascript:;" onclick="$(\'#discordAllMembers\').modal();"><kbd><kbd class="text-success">'.$allMemberCount.'</kbd></kbd></a> 人'; ?></h5>
                                     <h5 class="text-white mb-30">歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，群組內還有 24 小時播放音樂的頻道！</h5>
                                     <a href="javascript:;" class="primary-btn d-inline-flex align-items-center" onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span class="lnr lnr-arrow-right"></span></a>
                                 </div>
