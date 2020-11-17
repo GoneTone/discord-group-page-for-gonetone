@@ -77,38 +77,34 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#45A1EF">
     <title><?php echo $serverTitle . " | Discord 群組"; ?></title>
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-16x16.png" sizes="16x16">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-32x32.png" sizes="32x32">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-64x64.png" sizes="64x64">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-128x128.png" sizes="128x128">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-192x192.png" sizes="192x192">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-256x256.png" sizes="256x256">
-    <link rel="icon" href="https://discord.reh.tw/assets/images/icons/icon-512x512.png" sizes="512x512">
-    <link rel="apple-touch-icon-precomposed" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
-    <link rel="image_src" type="image/jpeg" href="https://discord.reh.tw/assets/images/og/logo-256x256.png">
+    <link rel="shortcut icon" href="https://api.reh.tw/images/gonetone/icos/favicon.ico">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-16x16.png" sizes="16x16">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-32x32.png" sizes="32x32">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-64x64.png" sizes="64x64">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-128x128.png" sizes="128x128">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-192x192.png" sizes="192x192">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png" sizes="256x256">
+    <link rel="icon" href="https://api.reh.tw/images/gonetone/logos/icons/icon-512x512.png" sizes="512x512">
+    <link rel="apple-touch-icon-precomposed" href="https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png">
+    <link rel="image_src" type="image/jpeg" href="https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png">
     <meta name="author" content="張文相 Zhang Wenxiang">
-    <meta name="description"
-          content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
-    <meta property="description"
-          content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
-    <meta name="msapplication-TileImage" content="https://discord.reh.tw/assets/images/og/logo-256x256.png">
+    <meta name="description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+    <meta property="description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+    <meta name="msapplication-TileImage" content="https://api.reh.tw/images/gonetone/logos/icons/icon-256x256.png">
     <meta property="fb:app_id" content="344099459299612">
     <meta property="article:author" content="https://www.facebook.com/GoneToneDY/">
     <meta property="og:site_name" content="旋風之音 GoneTone">
     <meta property="og:locale" content="zh_tw">
     <meta property="og:type" content="website">
     <meta property="og:title" content="<?php echo $serverTitle . " | Discord 群組"; ?>">
-    <meta property="og:description"
-          content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+    <meta property="og:description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
     <meta property="og:url" content="https://discord.reh.tw">
     <meta property="og:image" content="https://discord.reh.tw/assets/images/og/banner.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="<?php echo $serverTitle . " | Discord 群組"; ?>">
-    <meta name="twitter:description"
-          content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
+    <meta name="twitter:description" content="歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，還有 24 小時播放音樂的頻道！">
     <meta name="twitter:image" content="https://discord.reh.tw/assets/images/og/banner.png">
     <meta name="twitter:site" content="@TPGoneTone">
     <meta name="twitter:creator" content="@TPGoneTone">
@@ -129,18 +125,14 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="header-wrap">
                     <div class="header-top d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png?v=1.0.1"
-                                                                                width="247"
-                                                                                class="img-fluid d-block rounded"
-                                                                                alt=""></a>
+                            <a href="https://blog.reh.tw/" target="_blank"><img src="https://api.reh.tw/images/gonetone/banners/banner_954x200.png" width="247" class="img-fluid d-block rounded" alt=""></a>
                         </div>
                         <div class="main-menubar d-flex align-items-center">
                             <nav class="hide">
                                 <a href="https://blog.reh.tw/" target="_blank">網站</a>
                                 <a href="https://www.facebook.com/GoneToneDY" target="_blank">Facebook</a>
                                 <a href="https://twitter.com/TPGoneTone" target="_blank">Twitter</a>
-                                <a href="https://www.youtube.com/c/GoneTone?sub_confirmation=1"
-                                   target="_blank">YouTube</a>
+                                <a href="https://www.youtube.com/c/GoneTone?sub_confirmation=1" target="_blank">YouTube</a>
                                 <a href="https://github.com/GoneTone" target="_blank">GitHub</a>
                             </nav>
                             <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
@@ -156,12 +148,8 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                         <div class="banner-content">
                             <h1 class="text-white mb-10"><?php echo $serverTitle; ?></h1>
                             <h5 class="text-white mb-30"><?php echo '成員數共有 <kbd class="text-success">' . $allMemberCount . '</kbd> 人'; ?></h5>
-                            <h5 class="text-white mb-30">歡迎加入「<?php echo $serverTitle; ?>」Discord
-                                群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，群組內還有 24
-                                小時播放音樂的頻道！</h5>
-                            <a href="javascript:" class="primary-btn d-inline-flex align-items-center"
-                               onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span
-                                        class="lnr lnr-arrow-right"></span></a>
+                            <h5 class="text-white mb-30">歡迎加入「<?php echo $serverTitle; ?>」Discord 群組，我們歡迎您成為本群組的一員，成員可盡情聊天和使用我們的頻道，打 Game、討論動漫、程式開發，什麼話題都可，只要不違反規定，群組內還有 24 小時播放音樂的頻道！</h5>
+                            <a href="javascript:" class="primary-btn d-inline-flex align-items-center" onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span class="lnr lnr-arrow-right"></span></a>
                         </div>
                     </div>
                 </div>
@@ -191,13 +179,13 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                         <div class="remark-desc">
                             <h4><i class="fas fa-server"></i> 群組成員狀態</h4>
                             <p>此群成員數共有 <strong><u><?php echo $allMemberCount; ?></u></strong> 人！</p>
-                            <p>- 機器人 <strong><u><?php echo $allBotCount; ?></u></strong> 隻。
-                                <br>- 非機器人 <strong><u><?php echo $allMemberNoBotCount; ?></u></strong> 人。</p>
+                            <p>- 機器人 <strong><u><?php echo $allBotCount; ?></u></strong> 隻。 <br>- 非機器人
+                                <strong><u><?php echo $allMemberNoBotCount; ?></u></strong> 人。</p>
                             <p>線上 <strong><u><?php echo $onlineMemberCount; ?></u></strong> 人 | 閒置
                                 <strong><u><?php echo $idleMemberCount; ?></u></strong> 人 | 請勿打擾
                                 <strong><u><?php echo $dndMemberCount; ?></u></strong> 人 | 離線
-                                <strong><u><?php echo $offlineMemberCount; ?></u></strong> 人
-                                <br>正在遊戲 <strong><u><?php echo $playingMemberCount; ?></u></strong> 人 | 正在直播
+                                <strong><u><?php echo $offlineMemberCount; ?></u></strong> 人 <br>正在遊戲
+                                <strong><u><?php echo $playingMemberCount; ?></u></strong> 人 | 正在直播
                                 <strong><u><?php echo $streamingMemberCount; ?></u></strong> 人 | 正在觀看
                                 <strong><u><?php echo $watchingMemberCount; ?></u></strong> 人 | 正在聆聽
                                 <strong><u><?php echo $listeningMemberCount; ?></u></strong> 人</p>
@@ -224,8 +212,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="col-md-4">
                     <div class="single-feature">
                         <a class="image-popup-fit-width" href="assets/images/group-characteristics/emoji.jpg">
-                            <div class="thumb"
-                                 style="background: url(assets/images/group-characteristics/emoji.jpg);"></div>
+                            <div class="thumb" style="background: url(assets/images/group-characteristics/emoji.jpg);"></div>
                         </a>
                         <div class="desc text-center mt-30">
                             <h4 class="text-white">表情符號</h4>
@@ -236,8 +223,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="col-md-4">
                     <div class="single-feature">
                         <a class="image-popup-fit-width" href="assets/images/group-characteristics/grouping.jpg">
-                            <div class="thumb"
-                                 style="background: url(assets/images/group-characteristics/grouping.jpg);"></div>
+                            <div class="thumb" style="background: url(assets/images/group-characteristics/grouping.jpg);"></div>
                         </a>
                         <div class="desc text-center mt-30">
                             <h4 class="text-white">身分組</h4>
@@ -248,8 +234,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="col-md-4">
                     <div class="single-feature">
                         <a class="image-popup-fit-width" href="assets/images/group-characteristics/music.jpg">
-                            <div class="thumb"
-                                 style="background: url(assets/images/group-characteristics/music.jpg);"></div>
+                            <div class="thumb" style="background: url(assets/images/group-characteristics/music.jpg);"></div>
                         </a>
                         <div class="desc text-center mt-30">
                             <h4 class="text-white">24 小時音樂播放頻道</h4>
@@ -262,8 +247,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="col-md-4">
                     <div class="single-feature">
                         <a class="image-popup-fit-width" href="assets/images/group-characteristics/game.jpg">
-                            <div class="thumb"
-                                 style="background: url(assets/images/group-characteristics/game.jpg);"></div>
+                            <div class="thumb" style="background: url(assets/images/group-characteristics/game.jpg);"></div>
                         </a>
                         <div class="desc text-center mt-30">
                             <h4 class="text-white">遊戲專用語音頻道</h4>
@@ -274,8 +258,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                 <div class="col-md-4">
                     <div class="single-feature">
                         <a class="image-popup-fit-width" href="assets/images/group-characteristics/anime.jpg?v=1.1">
-                            <div class="thumb"
-                                 style="background: url(assets/images/group-characteristics/anime.jpg?v=1.1);"></div>
+                            <div class="thumb" style="background: url(assets/images/group-characteristics/anime.jpg?v=1.1);"></div>
                         </a>
                         <div class="desc text-center mt-30">
                             <h4 class="text-white">動漫、小說專區</h4>
@@ -306,16 +289,12 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
     <section class="story-area">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-1">
-                </div>
+                <div class="col-lg-1"></div>
                 <div class="col-lg-7">
                     <div class="story-box">
                         <h4 class="text-uppercase mb-10"><i class="far fa-hand-point-right"></i> 現在就加入我們的群組</h4>
-                        <p>加入「<?php echo $serverTitle; ?>」Discord 群組，一起玩遊戲、聽音樂、討論動漫與科技，隨時都可尋找遊戲夥伴，一同打遊戲！</p>
-                        <br>
-                        <a href="javascript:" class="primary-btn d-inline-flex align-items-center"
-                           onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span
-                                    class="lnr lnr-arrow-right"></span></a>
+                        <p>加入「<?php echo $serverTitle; ?>」Discord 群組，一起玩遊戲、聽音樂、討論動漫與科技，隨時都可尋找遊戲夥伴，一同打遊戲！</p><br>
+                        <a href="javascript:" class="primary-btn d-inline-flex align-items-center" onclick="joinDiscordGroup('CXxSFQx');"><span class="mr-10">加入 Discord 群組</span><span class="lnr lnr-arrow-right"></span></a>
                     </div>
                 </div>
             </div>
@@ -326,10 +305,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
             <div class="container">
                 <div class="footer-content d-flex justify-content-between align-items-center flex-wrap">
                     <div class="logo">
-                        <a href="https://blog.reh.tw/" target="_blank"><img src="assets/images/logo.png?v=1.0.1"
-                                                                            width="247"
-                                                                            class="img-fluid d-block rounded"
-                                                                            alt=""></a>
+                        <a href="https://blog.reh.tw/" target="_blank"><img src="https://api.reh.tw/images/gonetone/banners/banner_954x200.png" width="247" class="img-fluid d-block rounded" alt=""></a>
                     </div>
                     <div class="copy-right-text">Copyright &copy; <?php $set = '2018';
                         $datetime = date("Y", mktime(date('H') + 8, date('i'), date('s'), date('m'), date('d'), date('Y')));
@@ -337,16 +313,13 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                             echo $datetime;
                         } else {
                             echo $set . '-' . $datetime;
-                        } ?> <a href="/"><?php echo $serverTitle; ?></a>. All rights reserved.
-                        <br>Developed by <a href="https://www.facebook.com/GoneToneDY" target="_blank">張文相 (Zhang
-                            Wenxiang)</a>.
+                        } ?> <a href="/"><?php echo $serverTitle; ?></a>. All rights reserved. <br>Developed by
+                        <a href="https://www.facebook.com/GoneToneDY" target="_blank">張文相 (Zhang Wenxiang)</a>.
                     </div>
                     <div class="footer-social">
                         <a href="https://blog.reh.tw" target="_blank"><i class="fas fa-home"></i></a>
-                        <a href="https://www.facebook.com/GoneToneDY" target="_blank"><i
-                                    class="fab fa-facebook-square"></i></a>
-                        <a href="https://twitter.com/TPGoneTone" target="_blank"><i
-                                    class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.facebook.com/GoneToneDY" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://twitter.com/TPGoneTone" target="_blank"><i class="fab fa-twitter-square"></i></a>
                         <a href="https://github.com/GoneTone" target="_blank"><i class="fab fa-github-square"></i></a>
                     </div>
                 </div>
