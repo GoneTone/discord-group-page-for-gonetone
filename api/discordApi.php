@@ -2,6 +2,9 @@
 
 namespace GoneTone;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
+
 class DiscordApi
 {
     public $serverId;
@@ -17,29 +20,38 @@ class DiscordApi
     }
 
     public function fetch() {
-        $discordApiUrl = "https://discordapp.com/api/servers/" . $this->serverId . "/widget.json";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $discordApiUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        $this->discordApiData = json_decode(curl_exec($ch));
-        curl_close($ch);
+        $discordClient = new Client([
+            "base_uri" => "https://discord.com",
+            "headers" => [
+                "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            ],
+            "verify" => false
+        ]);
 
-        $gonetoneBotApiUrl = "https://gonetonebot.reh.tw:7097/api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey . "/";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $gonetoneBotApiUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        $this->gonetoneBotApiData = json_decode(curl_exec($ch));
-        curl_close($ch);
+        $gonetoneBotClient = new Client([
+            "base_uri" => "https://gonetonebot.reh.tw:7097",
+            "headers" => [
+                "User-Agent" => "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36"
+            ],
+            "verify" => false
+        ]);
 
-        $gonetoneBotApiNoMembersListUrl = "https://gonetonebot.reh.tw:7097/api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey . "/?list=false";
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $gonetoneBotApiNoMembersListUrl);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        $this->gonetoneBotApiNoMembersListData = json_decode(curl_exec($ch));
-        curl_close($ch);
+        try {
+            $discordResponse = $discordClient->request("GET", "api/guilds/" . $this->serverId . "/widget.json");
+            $this->discordApiData = json_decode($discordResponse->getBody());
+
+            $gonetoneBotResponse = $gonetoneBotClient->request("GET", "api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey);
+            $this->gonetoneBotApiData = json_decode($gonetoneBotResponse->getBody());
+
+            $gonetoneBotApiNoMembersListResponse = $gonetoneBotClient->request("GET", "api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey . "/?list=false");
+            $this->gonetoneBotApiNoMembersListData = json_decode($gonetoneBotApiNoMembersListResponse->getBody());
+        } catch (GuzzleException $e) {
+            error_log($e->getMessage());
+
+            $this->discordApiData = null;
+            $this->gonetoneBotApiData = null;
+            $this->gonetoneBotApiNoMembersListData = null;
+        }
     }
 
     /**

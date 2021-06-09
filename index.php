@@ -1,5 +1,6 @@
-<?php /** @noinspection HtmlDeprecatedTag */
-/** @noinspection HtmlDeprecatedAttribute */
+<?php
+include_once("vendor/autoload.php");
+
 include_once("api/discordApi.php"); //Discord API
 
 include_once("data/app-data-list.php"); //應用程式資料註冊清單
@@ -336,10 +337,10 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
 <script src="assets/js/jquery.magnific-popup.min.js"></script>
 <script src="assets/js/main.js?v=1.0.0"></script>
 <script type="text/javascript">
-    function joinDiscordGroup(code) {
-        const requestURL = "https://discord.gg/";
-        window.open(requestURL + code, "_blank");
-    }
+  function joinDiscordGroup (code) {
+    const requestURL = 'https://discord.gg/'
+    window.open(requestURL + code, '_blank')
+  }
 </script>
 </body>
 </html>
