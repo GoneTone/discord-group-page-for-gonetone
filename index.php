@@ -308,7 +308,7 @@ $listeningMemberCount = $discordApi->getListeningMemberCount();
                     <div class="logo">
                         <a href="https://blog.reh.tw/" target="_blank"><img src="https://api.reh.tw/images/gonetone/banners/banner_954x200.png" width="247" class="img-fluid d-block rounded" alt=""></a>
                     </div>
-                    <div class="copy-right-text">Copyright &copy; <?php $set = '2018';
+                    <div class="copy-right-text">Copyright &copy; <?php $set = '2014';
                         $datetime = date("Y", mktime(date('H') + 8, date('i'), date('s'), date('m'), date('d'), date('Y')));
                         if ($datetime == $set) {
                             echo $datetime;
