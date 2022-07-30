@@ -40,10 +40,10 @@ class DiscordApi
             $discordResponse = $discordClient->request("GET", "api/guilds/" . $this->serverId . "/widget.json");
             $this->discordApiData = json_decode($discordResponse->getBody());
 
-            $gonetoneBotResponse = $gonetoneBotClient->request("GET", "api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey);
-            $this->gonetoneBotApiData = json_decode($gonetoneBotResponse->getBody());
+            // $gonetoneBotResponse = $gonetoneBotClient->request("GET", "discord/server/" . $this->serverId . "/members");
+            // $this->gonetoneBotApiData = json_decode($gonetoneBotResponse->getBody());
 
-            $gonetoneBotApiNoMembersListResponse = $gonetoneBotClient->request("GET", "api/discord/server/" . $this->serverId . "/members/" . $this->gonetoneBotApiKey . "/?list=false");
+            $gonetoneBotApiNoMembersListResponse = $gonetoneBotClient->request("GET", "discord/server/" . $this->serverId . "/members/count");
             $this->gonetoneBotApiNoMembersListData = json_decode($gonetoneBotApiNoMembersListResponse->getBody());
         } catch (GuzzleException $e) {
             error_log($e->getMessage());
@@ -71,11 +71,11 @@ class DiscordApi
      * @return int|string 群組所有成員總數
      */
     public function getAllMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->member) || !isset($this->gonetoneBotApiNoMembersListData->contents->member->count->bot)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->member) || !isset($this->gonetoneBotApiNoMembersListData->contents->member_count->bot)) {
             return "Unknown";
         }
 
-        return ($this->gonetoneBotApiNoMembersListData->contents->member->count->member + $this->gonetoneBotApiNoMembersListData->contents->member->count->bot);
+        return ($this->gonetoneBotApiNoMembersListData->contents->member_count->member + $this->gonetoneBotApiNoMembersListData->contents->member_count->bot);
     }
 
     /**
@@ -83,11 +83,11 @@ class DiscordApi
      * @return int|string 群組所有成員總數 (不包含機器人)
      */
     public function getAllMemberNoBotCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->member)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->member)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->member;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->member;
     }
 
     /**
@@ -95,11 +95,11 @@ class DiscordApi
      * @return int|string 群組所有機器人總數
      */
     public function getAllBotCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->bot)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->bot)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->bot;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->bot;
     }
 
     /**
@@ -107,11 +107,11 @@ class DiscordApi
      * @return int|string 群組線上成員總數
      */
     public function getOnlineMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->online)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->online)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->online;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->online;
     }
 
     /**
@@ -119,11 +119,11 @@ class DiscordApi
      * @return int|string 群組閒置成員總數
      */
     public function getIdleMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->idle)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->idle)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->idle;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->idle;
     }
 
     /**
@@ -131,11 +131,11 @@ class DiscordApi
      * @return int|string 群組請勿打擾成員總數
      */
     public function getDndMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->dnd)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->dnd)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->dnd;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->dnd;
     }
 
     /**
@@ -143,11 +143,11 @@ class DiscordApi
      * @return int|string 群組離線成員總數
      */
     public function getOfflineMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->offline)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->offline) || !isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->unknown)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->offline;
+        return ($this->gonetoneBotApiNoMembersListData->contents->member_count->status->offline + $this->gonetoneBotApiNoMembersListData->contents->member_count->status->unknown);
     }
 
     /**
@@ -155,11 +155,11 @@ class DiscordApi
      * @return int|string 群組遊戲中成員總數
      */
     public function getPlayingMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->playing)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->playing)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->playing;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->playing;
     }
 
     /**
@@ -167,11 +167,11 @@ class DiscordApi
      * @return int|string 群組直播中成員總數
      */
     public function getStreamingMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->streaming)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->streaming)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->streaming;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->streaming;
     }
 
     /**
@@ -179,11 +179,11 @@ class DiscordApi
      * @return int|string 群組觀看中成員總數
      */
     public function getWatchingMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->watching)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->watching)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->watching;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->watching;
     }
 
     /**
@@ -191,10 +191,10 @@ class DiscordApi
      * @return int|string 群組觀看中成員總數
      */
     public function getListeningMemberCount() {
-        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->listening)) {
+        if (!isset($this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->listening)) {
             return "Unknown";
         }
 
-        return $this->gonetoneBotApiNoMembersListData->contents->member->count->status->activitie->listening;
+        return $this->gonetoneBotApiNoMembersListData->contents->member_count->status->activitie->listening;
     }
 }
