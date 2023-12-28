@@ -1,0 +1,74 @@
+==================================================================
+https://keybase.io/gonetone
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://discord.reh.tw
+  * I am gonetone (https://keybase.io/gonetone) on keybase.
+  * I have a public key with fingerprint B32A FF5D F934 6C01 5489  8A74 B906 8CA5 8383 5DB2
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101bb537b709930786b94480258e502f3c171b6194fe9b5ad9f3f4144e9191451db0a",
+      "fingerprint": "b32aff5df9346c0154898a74b9068ca583835db2",
+      "host": "keybase.io",
+      "key_id": "b9068ca583835db2",
+      "kid": "0101bb537b709930786b94480258e502f3c171b6194fe9b5ad9f3f4144e9191451db0a",
+      "uid": "ac32fdaf2e06162912a0d1ad06c98b19",
+      "username": "gonetone"
+    },
+    "service": {
+      "hostname": "discord.reh.tw",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1605612573,
+  "expire_in": 157680000,
+  "prev": "ed4987caeff20a3f9ef82ca722e15fa6c7c0de00483613d7c382e8cf4dd4a2b8",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMNGAnicrVJrTBxVGN0tSBdSECqRRNIAgwoNKzvvxyYKIjQppbQlIVtA2czjzjKC
+u9vZge0WqbUotYG0RUIt2kdAkW4MhRZoCqTGpYVWKOAWsjTYlIYo1SJUUQK+qDOk
+/vOnN7m5ud8959xzvnzXw4N0YfrekLrW6uo3LulHfE3lOmtX95ZKiHMIHshcCZWC
+9QOUCcClWEslATJDMAIjHEdgFEfBDIPBFE1yDI7TMErQgIBREeMRCuFIhMFFwHAE
+KzAiJuIIjgMGYRCcQAQOZiEjJEp2G5CdsmRXVFkOQ1lRJASRwXCShxECpxmapXCO
+gUmaZwkaozFC4FCVWOJwaQzVHMe6QKrkUGvqxbpu7z/w/7Pv8nU5lsdQUWBFFMAk
+QqIMgrKwgLACTPIMzSGMBnQB2c6+BVS0zWEHirqhKiOkViskHmiN1ZI8QQiSi3fI
+QqoMSlIVt8p2yg7FwTvK1LcSRXG6zBpX8Tg1sBtw1icyVk6yC2onVUYFkF2Sww6Z
+ERXJK5Kmi5AwQSIoQWFGCOx3SjKwShqCoEgaVpf2D6hQJYGAMzTFs0AUUZjFRAaI
+NMqzFIoChBBZkqd4WAAwjNMYiWACxWM0CmhexAUBZ1GOhrRg++wOyMyoNlmbKumS
+bHZWKZfV1AO+14N1+jBdyFMbtAnThYVG/jt3YwtPPy7dPh99OArs9Lg7g8w/WIY/
+CSyFFs5eGzo69iLS+qX+VjP0vm1PIGuuMKTisb4lZVjyF/wYmHtowvYbql6qPRL8
+e7spd8tYzKni8NmRFaqtJ90+T30Xk9dlAxub+Du/Zhzry9Tn2MIufT/hj1p8bkcv
+awnz1vjyrpyOzb0Q29njK+34IqF1epX680pNTMHWh68Nta88io46aGh/NTvh9mLj
+vdif3rx3rt9+I7c3/u/GkZyoiQi5qL95ICfdu2fhwfaM6qOupqLDU5Mn3bolj/+8
+pVxu8S6Pbl4r6+4wjO/de9w0fSY/QFUVxc73HxOMH8ynH5jZCpUmvTP026eU0etu
+DPn5jOHdsecjioNeziRw5eqi89u87F1xG2pmlpNnUqYGAlJoyM7Qdn3dX2cNG5l6
+r/9mtH7ts4w5YTB8bbr/4qFARy3Zmf72dFrSPnH2o8sNd14ZXPJleohI9/hNfaXi
+D+577+7uuCxzpu98UnRaW+CbrEjs4rnsQ49WGhrY1q/bNo2+QJ3KKv7w/rX65viS
+2oOXP96ML1T158etxvifWX7wC0Fl3B+8OmnRnbxumploQVriE27ffTbtwpFtJ2ZN
+o90NIwf4hBP59YnG+JTEqqnJrq+yPYUZfzS2e1L6jrOgMbngRmD+87Mmy3B5Uc+m
+lgFjIrNjJNsacWuXYWJbXXLU6vg/52HBiQ==
+=LBuA
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gonetone
+
+==================================================================
