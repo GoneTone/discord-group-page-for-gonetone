@@ -1,6 +1,6 @@
 {
     "require": {
-        "guzzlehttp/guzzle": "7.0",
+        "guzzlehttp/guzzle": "7.4.5",
         "ext-json": "*"
     }
 }
